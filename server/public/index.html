@@ -67,8 +67,12 @@
     <script type="text/javascript">
     $(function() {
         var socketio = io.connect(location.origin);
-        socketio.on('connected', function(name) { alert('hogehoge'); });
-//        socketio.on('publish', function (data) { addMessage(data.value); });
+        socketio.on('init', function (data) {
+	    if (0 < data.like) {
+                $('.project-overlay').css('visibility', 'visible');
+                $('#likeCount').text(data.value);
+	    }
+        });
         socketio.on('like', function(data) {
             if (0 < data.value) {
                 $('.project-overlay').css('visibility', 'visible');
@@ -76,7 +80,8 @@
             }
         });
         socketio.on('disconnect', function () {});
-socketio.emit("connected", name);
+
+        socketio.emit("connected", name);
     
         function sendLike() {
             socketio.emit('like');

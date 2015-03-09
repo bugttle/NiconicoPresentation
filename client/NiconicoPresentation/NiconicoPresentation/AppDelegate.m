@@ -311,7 +311,9 @@
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
     NSLog(@"%s", __func__);
-    if ([packet.name isEqualToString:@"publish"]) {
+    if ([packet.name isEqualToString:@"init"]) {
+        
+    } else if ([packet.name isEqualToString:@"publish"]) {
         NSString *message = packet.args[0][@"value"];
         [self addMessage:message];
     } else if ([packet.name isEqualToString:@"like"]) {
