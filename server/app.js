@@ -1,12 +1,21 @@
+// logger
+var log4js = require('log4js');
+log4js.configure('config/log4js.json');
+var logger = log4js.getLogger('socketio');
+//logger.setLevel('DEBUG');
+logger.info('testlog');
+
+// httpd
 var fs = require('fs');
 var static = require('node-static');
-var file = new static.Server('./public');
+var fileServer = new static.Server('./public');
 var server = require('http').createServer(function(request, response) {
     request.addListener('end', function() {
-        file.serve(request, response);
-    //res.writeHead(200, {'Content-Type':'text/html'});
-    //var output = fs.readFileSync('./index.html', 'utf-8');
-    //res.end(output);
+        fileServer.serve(request, response, function(e, res) {
+            if (e && (e.status === 404)) {
+                fileServer.serveFile('/404/index.html', 404, {}, request, response);
+            }
+        });
     }).resume();
 }).listen(8080, "0.0.0.0");
 
