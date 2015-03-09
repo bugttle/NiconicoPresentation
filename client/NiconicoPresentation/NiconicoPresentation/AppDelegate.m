@@ -67,7 +67,7 @@
 }
 
 - (NSTextField *) createLikeCountTextField:(NSInteger)count {
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, 200, 30))];
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 30)];
 //    text.stringValue = [NSString stringWithFormat:@"%ld", count];
     text.font = [NSFont systemFontOfSize:20.0f];
     text.bezeled = NO;
@@ -87,13 +87,13 @@
 }
 
 - (void)showLikeImage:(NSInteger)count {
-    NSImageView *view = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 171)];
+    NSImageView *view = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 200, 171)];
     view.image = [NSImage imageNamed:@"FacebookLike.png"];
     [_window.contentView addSubview:view];
     
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         context.duration = 2.0f;
-        view.animator.frame = CGRectOffset(view.frame, 0, 100);
+        view.animator.frame = NSOffsetRect(view.frame, 0, 100);
         view.animator.alphaValue = 0.0;
     } completionHandler:^{
         [view removeFromSuperview];
@@ -107,7 +107,6 @@
     _likeCountTextField.alphaValue = 1.0f;
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         context.duration = 2.0f;
-//        view.animator.frame = CGRectOffset(view.frame, 0, 100);
         _likeCountTextField.animator.alphaValue = 0.0;
     } completionHandler:nil];
 }
