@@ -2,18 +2,20 @@
 var log4js = require('log4js');
 log4js.configure('config/log4js.json');
 var logger = log4js.getLogger('socketio');
-//logger.setLevel('DEBUG');
+logger.setLevel('DEBUG');
 logger.info('testlog');
 
 // httpd
-var fs = require('fs');
 var static = require('node-static');
-var fileServer = new static.Server('./public');
+var fileServer = new static.Server('public');
+
 var server = require('http').createServer(function(request, response) {
     request.addListener('end', function() {
         fileServer.serve(request, response, function(e, res) {
             if (e && (e.status === 404)) {
-                fileServer.serveFile('/404/index.html', 404, {}, request, response);
+                logger.info('404');
+                response.writeHead(301, {Location: '/404/js-moonwarriors/index.html'});
+                response.end();
             }
         });
     }).resume();
@@ -34,6 +36,7 @@ var chat = io.sockets.on('connection', function(socket) {
     console.log("isOwner:" + isOwner);
 
     socket.on('connected', function(name) {
+        logger.info('connected' + name);
         var msg = name + 'が入室しました。';
 //        console.log('rooms:', io.sockets.manager.rooms);
         if (isOwner) {
@@ -50,8 +53,7 @@ var chat = io.sockets.on('connection', function(socket) {
 //            chat.join('users');
         }
 //        socket.set('name', name);
-        io.sockets.emit('like', {value:likeCount});
- console.log("!!!!!");
+        io.sockets.emit('init', {like:likeCount});
     });
 
     socket.on('like', function(data) {
@@ -60,6 +62,7 @@ var chat = io.sockets.on('connection', function(socket) {
 
     socket.on('publish', function(data) {
 //        chat.to('admin').emit('publish', {value:data.value});
+        logger.info('publish:' + data.value);
         io.sockets.emit('publish', {value:data.value});
     });
 
