@@ -5,52 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Presentation</title>
+
   <link href="/css/bootstrap.min.css" rel="stylesheet">
+
   <style type="text/css">
   .like-image {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-  }
-  .img-overlay {
-      position: relative;
-      max-width: 200px;
-  }
-  .project-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      padding: 50% 55%;
-      visibility: hidden;
+      width: 44px;
+      height: 44px;
   }
   </style>
 </head>
 
 <body>
-<h1 class="text-center"><span class="glyphicon glyphicon-education"></span>Presentation</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">Comment list
+    <a id="like" href="#"><img src="/img/FacebookLike.png" class="like-image" /></a>
+    <span id="likeCount" class="badge">0</span>
 
-<div class="img-overlay like-image">
-<a id="like" href="#">
-<img src="/img/FacebookLike.png" />
-<div class="project-overlay">
-<span id="likeCount" class="badge">0</span>
-</div>
-</a>
-</div>
+    <button type="button" id="doTest" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-qrcode"></span>
+    </button>
+  </div>
+  <div class="panel-body">
+    <form id="commentForm" action="/#" method="post">
+       <div class="input-group">
+           <input id="comment" class="form-control" type="text" placeholder="Send a comment">
+           <span class="input-group-btn">
+               <input class="btn btn-default" type="submit" value="Submit" />
+           </span>
+       </div>
+    </form>
+  </div>
 
-<br />
-
-<div>
-<form id="commentForm" action="/#" method="post">
-   <div class="input-group">
-       <input id="comment" class="form-control" type="text" placeholder="Please give me feedback!">
-       <span class="input-group-btn">
-           <input class="btn btn-default" type="submit" value="Submit" />
-       </span>
-   </div>
-</form>
+  <ul id="receivedComment">
+  </ul>
 </div>
 
 <!--[if lt IE 9]>
@@ -71,15 +59,16 @@ $(function() {
     socketio.on('like', function(data) {
         updateLikeCount(data.value);
     });
+    socketio.on('publish', function(data) {
+        var comment = '(' + data.date + ') ' + data.value;
+        $('#receivedComment').prepend($('<li class="list-group-item">' + comment + '</li>'));
+    });
     socketio.on('disconnect', function () {});
 
     socketio.emit("connected");
 
     function updateLikeCount(count) {
-        if (0 < count) {
-            $('.project-overlay').css('visibility', 'visible');
-            $('#likeCount').text(count);
-        }
+        $('#likeCount').text(count);
     }
     function sendLike() {
         socketio.emit('like');
@@ -91,6 +80,13 @@ $(function() {
           $('#comment').val('');
       }
     }
+    function sendTest() {
+        socketio.emit('doTest');
+    }
+
+    $('#doTest').on('click', function() {
+        sendTest();
+    });
     $('#like').on('click', function() {
         sendLike();
         return false;

@@ -2,12 +2,24 @@
 <html>
 <head>
     <title>Cocos2d-html5 Show Case - MoonWarriors</title>
-    <meta name="viewport" content="user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta charset="utf-8"/>
-    <meta name="author" content="html5china"/>
+
+    <style type="text/css">
+    .img-overlay {
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 8%;
+        z-index: 1;
+        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+    </style>
 </head>
 <body>
-<h1>404</h1>
+<h1 class="img-overlay">404 Page Not Found</h1>
 <canvas id="gameCanvas" width="320" height="480"></canvas>
 <script src="../frameworks/cocos2d-html5/CCBoot.js"></script>
 <script src="main.js"></script>
