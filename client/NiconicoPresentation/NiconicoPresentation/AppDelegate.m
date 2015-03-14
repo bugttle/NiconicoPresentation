@@ -12,84 +12,101 @@
 #import "NS(Attributed)String+Geometrics.h"
 #import "SocketIO.h"
 
-#define MAX_MESSAGE_LINE 11
+#define HOSTNAME @"localhost"
+#define PORTNUM 80
+#define MAX_MESSAGE_LINE 14
+#define MESSAGE_ANIMATION_DURATION 6.0f
 
 @interface AppDelegate () <SocketIODelegate>
 {
     int _messageCounts[MAX_MESSAGE_LINE];
 }
 @property (weak) IBOutlet NSWindow *window;
-@property (strong) SocketIO *socketIO;
+@property (assign) float messageHeight;
 @property (strong) NSTextField *likeCountTextField;
+@property (strong) SocketIO *socketIO;
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
-    
-//    NSRect frame = [NSScreen mainScreen].frame;
+    [self initWindow];
+    [self initMessages];
+    [self initSocketIO];
+}
+
+- (void)initWindow {
     NSRect frame = _window.screen.frame;
     
-    NSColor *color = [NSColor colorWithDeviceRed:0.0 green:0.0 blue:0.0 alpha:0.0];
     [_window setFrame:frame display:YES animate:NO];
-    //    _window resizeIncrements
-    //    _window.frame.size = [NSScreen mainScreen].visibleFrame.size;
-
-    _window.opaque = NO;
-    _window.backgroundColor = color;
     [_window makeKeyAndOrderFront:nil];
+    _window.opaque = NO;
+    _window.backgroundColor = [NSColor colorWithDeviceRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
     _window.level = NSScreenSaverWindowLevel;//NSStatusWindowLevel;
     _window.ignoresMouseEvents = YES;
     _window.hasShadow = NO;
     _window.styleMask = NSBorderlessWindowMask;
     
-//    [_window setOpaque:NO];
-//    [_window setBackgroundColor:color];
-//    [_window makeKeyAndOrderFront:nil];
-//    [_window setLevel:NSStatusWindowLevel];
-//    [_window setIgnoresMouseEvents:YES];
-//    [_window setHasShadow:NO];
-//    [_window setStyleMask:NSBorderlessWindowMask];
-//    [NSMenu setMenuBarVisible:NO];
-    
-//    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(addMessage) userInfo:nil repeats:YES];
-    
+    //[NSMenu setMenuBarVisible:NO];
+}
+
+- (void)initMessages {
+    // 1メッセージあたりの高さ
+    _messageHeight = _window.screen.frame.size.height / MAX_MESSAGE_LINE;
+    // メッセージのバッファ
     for (int i = 0; i < MAX_MESSAGE_LINE; ++i) {
         _messageCounts[i] = 0;
     }
-    
+    // Like
     _likeCountTextField = [self createLikeCountTextField:0];
     [_window.contentView addSubview:_likeCountTextField];
-    
-    _socketIO = [[SocketIO alloc] initWithDelegate:self];
-    [_socketIO connectToHost:@"localhost" onPort:8080];
+}
+
+- (void)initSocketIO {
+    if (!_socketIO) {
+        _socketIO = [[SocketIO alloc] initWithDelegate:self];
+    }
+    [_socketIO connectToHost:HOSTNAME onPort:PORTNUM];
 }
 
 - (NSTextField *) createLikeCountTextField:(NSInteger)count {
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 30)];
-//    text.stringValue = [NSString stringWithFormat:@"%ld", count];
-    text.font = [NSFont systemFontOfSize:20.0f];
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(70, 80, 200, 40)];
+    text.font = [NSFont systemFontOfSize:40.0f];
     text.bezeled = NO;
     text.drawsBackground = NO;
     text.editable = NO;
     text.selectable = NO;
     text.usesSingleLineMode = YES;
-    text.wantsLayer = YES;
-//    text.alphaValue = 0.0f;
     
-    NSDictionary *textAttributes = @{//NSFontAttributeName: text.font,
-                                     NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-2.0],
+    NSDictionary *textAttributes = @{NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-3.0],
                                      NSStrokeColorAttributeName:[NSColor whiteColor],
                                      NSForegroundColorAttributeName:[NSColor blackColor]};
     text.attributedStringValue = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", count] attributes:textAttributes];
     return text;
 }
 
-- (void)showLikeImage:(NSInteger)count {
-    NSImageView *view = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 200, 171)];
+- (NSTextField *)createMessageLabel:(NSString *)message atIndex:(int)index {
+    NSRect frame = _window.screen.visibleFrame;
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-((_messageHeight-6)*index)-8, frame.size.width, _messageHeight)];
+    text.font = [NSFont systemFontOfSize:72.0f];
+    text.stringValue = message;
+    text.bezeled = NO;
+    text.drawsBackground = NO;
+    text.editable = NO;
+    text.selectable = NO;
+    text.usesSingleLineMode = YES;
+    text.wantsLayer = YES;
+    NSDictionary *textAttributes = @{NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-3.0f],
+                                     NSStrokeColorAttributeName:[NSColor whiteColor],
+                                     NSForegroundColorAttributeName:[NSColor blackColor]};
+    text.attributedStringValue = [[NSAttributedString alloc] initWithString:message attributes:textAttributes];
+    return text;
+}
+
+- (void)showLike:(NSInteger)count {
+    NSImageView *view = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 90, 200, 171)];
     view.image = [NSImage imageNamed:@"FacebookLike.png"];
-    [_window.contentView addSubview:view];
+    [_window.contentView addSubview:view positioned:NSWindowBelow relativeTo:_likeCountTextField];
     
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
         context.duration = 2.0f;
@@ -99,8 +116,7 @@
         [view removeFromSuperview];
     }];
     
-    NSDictionary *textAttributes = @{//NSFontAttributeName: text.font,
-                                     NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-2.0],
+    NSDictionary *textAttributes = @{NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-3.0],
                                      NSStrokeColorAttributeName:[NSColor whiteColor],
                                      NSForegroundColorAttributeName:[NSColor blackColor]};
     _likeCountTextField.attributedStringValue = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", count] attributes:textAttributes];
@@ -109,6 +125,25 @@
         context.duration = 2.0f;
         _likeCountTextField.animator.alphaValue = 0.0;
     } completionHandler:nil];
+}
+
+- (void)doScreenTest {
+    [self addMessage:@"111111111111111111111111111111111111111111111111111111111111111111111111111111"];
+    [self addMessage:@"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"];
+    [self addMessage:@"ABCDEFGHIJKLMNOPQRSQUVWXYZABCDEFGHIJKLMNOPQRSQUVWXYZABCDEFGHIJKLMNOPQRSQUVWXYZ"];
+    [self addMessage:@"44444444444444444444444444444444444444444444444444444444444444444444444444444444"];
+    [self addMessage:@"55555555555555555555555555555555555555555555555555555555555555555555555555555555"];
+    [self addMessage:@"66666666666666666666666666666666666666666666666666666666666666666666666666666666"];
+    [self addMessage:@"77777777777777777777777777777777777777777777777777777777777777777777777777777777"];
+    [self addMessage:@"88888888888888888888888888888888888888888888888888888888888888888888888888888888"];
+    [self addMessage:@"99999999999999999999999999999999999999999999999999999999999999999999999999999999"];
+    [self addMessage:@"10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10"];
+    [self addMessage:@"11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11"];
+    [self addMessage:@"12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12"];
+    [self addMessage:@"13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13"];
+    [self addMessage:@"14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14"];
+
+    [self showLike: 999];
 }
 
 - (int)modIndex {
@@ -127,76 +162,20 @@
 - (void)addMessage:(NSString *)message {
     int index = [self modIndex];
 
-//    NSRect frame = [NSScreen mainScreen].visibleFrame;  // {{0, 65}, {1680, 962}}
-//    NSRect frame = [NSScreen mainScreen].frame;  // {{0, 0}, {1680, 1050}}
-
-    NSRect frame = _window.screen.visibleFrame;
-    NSLog(@"frame=%@", NSStringFromRect(frame));
-
-    //    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(30, 30, 300, 300)];
-    float height = 88.0f;
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-(height*index), frame.size.width, height)];
-    text.font = [NSFont systemFontOfSize:72.0f];
-    text.stringValue = message;
-    text.bezeled = NO;
-    text.drawsBackground = NO;
-    text.editable = NO;
-    text.selectable = NO;
-    text.usesSingleLineMode = YES;
-    text.wantsLayer = YES;
-    NSDictionary *textAttributes = @{//NSFontAttributeName: text.font,
-                                     NSStrokeWidthAttributeName: [NSNumber numberWithFloat:-2.0f],
-                                     NSStrokeColorAttributeName:[NSColor whiteColor],
-                                     NSForegroundColorAttributeName:[NSColor blackColor]};
-    text.attributedStringValue = [[NSAttributedString alloc] initWithString:message attributes:textAttributes];
-
+    NSTextField *text = [self createMessageLabel:message atIndex:index];
     [_window.contentView addSubview:text];
     
-    NSLog(@"%@", NSStringFromRect(text.frame));
-    
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:text.font, NSFontAttributeName, nil];
-    //    float width = [text.stringValue widthForHeight:text.frame.size.height attributes:attributes];
-    float width = [text.stringValue widthForHeight:600 attributes:attributes];
-    NSLog(@"width = %f", width);
+    float width = [text.stringValue widthForHeight:_messageHeight attributes:attributes];
     if (text.frame.size.width < width) {
         [text setFrameSize:CGSizeMake(width, text.frame.size.height)];
     }
-    // this is what widthForHeight internally does:
-    //    NSSize size = [text.stringValue sizeForWidth:FLT_MAX height:text.frame.size.height attributes:attributes];
-    //    NSLog(@"size = %@", NSStringFromSize(size));
-    
-    
-    
-    //    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[text font],NSFontAttributeName,nil];
-    //    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:[text stringValue] attributes:attributes];
-    //    attributedString
-    //    CGFloat height = [attributedString heightForWidth:[text frame].size.width];
-    
-    
-    [self bounceTimeLabel:text withWidth:width withDuration:5 atIndex:index];
+   
+    [self animateMessageLabel:text withWidth:width withDuration:MESSAGE_ANIMATION_DURATION atIndex:index];
 }
 
-- (void)bounceTimeLabel:(NSView *)view withWidth:(float)width withDuration:(float)duration atIndex:(int)index
+- (void)animateMessageLabel:(NSView *)view withWidth:(float)width withDuration:(float)duration atIndex:(int)index
 {
-   
-//        [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
-//            context.duration = 20.f;
-//            view.animator.frame = CGRectOffset(view.frame, 400, 0);
-//        } completionHandler:nil];
-    
-    
-//    NSRect newFrame = CGRectMake(-view.frame.size.width, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
-//    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
-//    [dict setObject:view forKey:NSViewAnimationTargetKey];
-//    //    [dict setObject:NSViewAnimationFadeInEffect forKey:NSViewAnimationEffectKey];
-//    [dict setObject:[NSValue valueWithRect:view.frame] forKey:NSViewAnimationStartFrameKey];
-//    [dict setObject:[NSValue valueWithRect:newFrame] forKey:NSViewAnimationEndFrameKey];
-//    
-//    NSViewAnimation *anim = [[NSViewAnimation alloc] initWithViewAnimations:[NSArray arrayWithObject:dict]];
-//    [anim setDuration:duration];
-//    [anim setAnimationCurve:NSAnimationLinear];
-//    [anim startAnimation];
-
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         [view removeFromSuperview];
@@ -206,106 +185,32 @@
         for (int i = 1; i < MAX_MESSAGE_LINE; ++i) {
             [str appendFormat:@"%d,", _messageCounts[i]];
         }
-        NSLog(@"%@", str);
     }];
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation.duration = duration;
-    NSLog(@"duration:%lf, %lf",animation.duration, log(width));
     animation.fromValue = [NSNumber numberWithFloat:view.frame.size.width];
     animation.toValue = [NSNumber numberWithFloat:-(width)];
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     [view.layer addAnimation:animation forKey:@"moveby"];
     [CATransaction commit];
-    
-//    CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
-//    [pathAnimation setDuration:1];
-//    [pathAnimation setFromValue:[NSValue valueWithPoint:view.frame.origin]];
-//    [pathAnimation setToValue:[NSValue valueWithPoint:NSPointFromCGPoint(CGPointMake(view.frame.origin.x-100, 0))]];
-//    [CATransaction setCompletionBlock:^{
-////        _lastPoint = _currentPoint; _currentPoint = CGPointMake(_lastPoint.x + _wormStepHorizontalValue, _wormStepVerticalValue);
-//        NSLog(@"finished!!!!!!!!");
-//    }];
-//    [view.layer addAnimation:pathAnimation forKey:@"strokeEnd"];
-//    [CATransaction commit];
-    
-    
-    
-//    CABasicAnimation *animation = [CABasicAnimation animation];
-//    animation.fromValue = [NSValue valueWithPoint:view.frame.origin];
-//    animation.toValue = [NSValue valueWithPoint:CGPointMake(0, view.frame.origin.y)];
-//    [view.layer addAnimation:animation forKey:nil];
-
-//    CAKeyframeAnimation *move = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-//    move.values = [NSArray arrayWithObjects:
-//                   [NSValue valueWithPoint:view.frame.origin],
-//                   [NSValue valueWithPoint:CGPointMake(view.frame.origin.x-100, view.frame.origin.y-100)],
-//                   nil];
-//    move.calculationMode = kCAAnimationLinear;
-//    [move setDuration:3];
-//    [view.layer addAnimation:move forKey:@"position"];
-//    move.removedOnCompletion = YES;
-    
-    
-//         // Create a key frame animation
-//        CAKeyframeAnimation *bounce = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
-//    
-//        // Create the values it will pass through
-//        CATransform3D forward = CATransform3DMakeScale(1.3, 1.3, 1);
-//        CATransform3D back = CATransform3DMakeScale(0.7, 0.7, 1);
-//        CATransform3D forward2 = CATransform3DMakeScale(1.2, 1.2, 1);
-//        CATransform3D back2 = CATransform3DMakeScale(0.9, 0.9, 1);
-//        [bounce setValues:[NSArray arrayWithObjects:
-//                           [NSValue valueWithCATransform3D:CATransform3DIdentity],
-//                           [NSValue valueWithCATransform3D:forward],
-//                           [NSValue valueWithCATransform3D:back],
-//                           [NSValue valueWithCATransform3D:forward2],
-//                           [NSValue valueWithCATransform3D:back2],
-//                           [NSValue valueWithCATransform3D:CATransform3DIdentity],
-//                           nil]];
-//        // Set the duration
-//        [bounce setDuration:0.6];
-//    
-//        // Animate the layer
-//    
-//        NSLog(@"The layer is %@", [view layer]);
-//    
-//        if (!view) {
-//            NSLog(@"Textfeild is nil");
-//        } else {
-//            NSLog(@"Testfield exists and is of type: %@", [view class]);
-//        }
-//    
-//    
-//        [[view layer] addAnimation:bounce forKey:@"bounceAnimation"];
-    
-    
-    
 }
 
 - (void) socketIODidConnect:(SocketIO *)socket {
     NSLog(@"%s", __func__);
-    [socket sendEvent:@"connected" withData:@"11111"];
+    [socket sendEvent:@"connected" withData:nil];
 }
 
 - (void) socketIODidDisconnect:(SocketIO *)socket disconnectedWithError:(NSError *)error {
-    
+    NSLog(@"%s: error=%@", __func__, error.localizedDescription);
 }
 
 - (void) socketIO:(SocketIO *)socket onError:(NSError *)error {
-    
-}
-
-- (void)socketIO:(SocketIO *)socket didReceiveJSON:(SocketIOPacket *)packet
-{
-    NSLog(@"%s", __func__);
-    NSLog(@"packet:%@", packet);
-}
-
-- (void)socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
-{
-    NSLog(@"%s", __func__);
-    NSLog(@"packet:%@", packet);
+    NSLog(@"%s: error=%@", __func__, error.localizedDescription);
+    [socket disconnectForced];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self initSocketIO];
+    });
 }
 
 - (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
@@ -318,15 +223,10 @@
         [self addMessage:message];
     } else if ([packet.name isEqualToString:@"like"]) {
         NSString *countString = (NSString *)(packet.args[0][@"value"]);
-        [self showLikeImage:countString.integerValue];
+        [self showLike:countString.integerValue];
+    } else if ([packet.name isEqualToString:@"doTest"]) {
+        [self doScreenTest];
     }
-    //        if ([packet.name isEqualToString:@"message:receive"]) {
-    //                // メッセージが空でなければ追加
-    //                if (packet.args[0][@"message"]) {
-    //                        [self.datas insertObject:packet.args[0][@"message"] atIndex:0];
-    //                        [self.tableView reloadData];
-    //                    }
-    //            }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
