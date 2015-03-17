@@ -17,6 +17,18 @@
 #define MAX_MESSAGE_LINE 14
 #define MESSAGE_ANIMATION_DURATION 6.0f
 
+//#include <Carbon/Carbon.h>
+//kVK_LeftArrow                 = 0x7B,
+//kVK_RightArrow                = 0x7C,
+//kVK_DownArrow                 = 0x7D,
+//kVK_UpArrow                   = 0x7E
+typedef NS_ENUM (NSUInteger, NPKeyCode) {
+    NPKeyCodeLeftArrow = 0x7B,
+    NPKeyCodeRightArrow = 0x7C,
+    NPKeyCodeDownArrow = 0x7D,
+    NPKeyCodeUpArrow = 0x7E,
+};
+
 @interface AppDelegate () <SocketIODelegate>
 {
     int _messageCounts[MAX_MESSAGE_LINE];
@@ -46,7 +58,6 @@
     _window.ignoresMouseEvents = YES;
     _window.hasShadow = NO;
     _window.styleMask = NSBorderlessWindowMask;
-    
     //[NSMenu setMenuBarVisible:NO];
 }
 
@@ -127,6 +138,21 @@
     } completionHandler:nil];
 }
 
+- (void)postKeyboardEvent:(NPKeyCode)keyCode {
+    CGEventSourceRef source = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
+    
+    CGEventRef keyDownEvent = CGEventCreateKeyboardEvent(source, (CGKeyCode)keyCode, true);
+    CGEventRef keyUpEvent = CGEventCreateKeyboardEvent(source, (CGKeyCode)keyCode, false);
+    
+    //CGEventSetFlags(keyDownEvent, kCGEventFlagMaskControl);  // Ctrlが必要な場合
+    CGEventPost(kCGHIDEventTap, keyDownEvent);
+    CGEventPost(kCGHIDEventTap, keyUpEvent);
+    
+    CFRelease(keyUpEvent);
+    CFRelease(keyDownEvent);
+    CFRelease(source);
+}
+
 - (void)doScreenTest {
     [self addMessage:@"111111111111111111111111111111111111111111111111111111111111111111111111111111"];
     [self addMessage:@"abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"];
@@ -192,7 +218,7 @@
     animation.toValue = [NSNumber numberWithFloat:-(width)];
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    [view.layer addAnimation:animation forKey:@"moveby"];
+    [view.layer addAnimation:animation forKey:@"moveByAnimation"];
     [CATransaction commit];
 }
 
@@ -217,14 +243,26 @@
 {
     NSLog(@"%s", __func__);
     if ([packet.name isEqualToString:@"init"]) {
-        
+        // 初期化
     } else if ([packet.name isEqualToString:@"publish"]) {
+        // コメントの表示
         NSString *message = packet.args[0][@"value"];
         [self addMessage:message];
     } else if ([packet.name isEqualToString:@"like"]) {
+        // いいねの表示
         NSString *countString = (NSString *)(packet.args[0][@"value"]);
         [self showLike:countString.integerValue];
+    } else if ([packet.name isEqualToString:@"keyEvent"]) {
+        // キーイベント
+        NSString *key = (NSString *)(packet.args[0][@"keyCode"]);
+        if ([key isEqualToString:@"leftArrow"]) {
+            [self postKeyboardEvent:NPKeyCodeLeftArrow];
+        } else if ([key isEqualToString:@"rightArrow"]) {
+            [self postKeyboardEvent:NPKeyCodeRightArrow];
+        }
+        // それ以外は無視
     } else if ([packet.name isEqualToString:@"doTest"]) {
+        // テスト
         [self doScreenTest];
     }
 }

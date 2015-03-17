@@ -113,6 +113,11 @@ var chat = io.sockets.on('connection', function(socket) {
         chat.to('admin').emit('publish', {date:formatDate(new Date(), 'MM/DD hh:mm:ss'), value:data.value});
     });
 
+    socket.on('keyEvent', function(data) {
+        logger.info('keyEvent [' + remoteAddress + ']: ' + data.keyCode);
+        chat.to('admin').emit('keyEvent', data);
+    });
+
     socket.on('doTest', function(data) {
         logger.info('doTest [' + remoteAddress + ']');
         if (isLocalHost(remoteAddress) || isAdminAddress(remoteAddress)) {

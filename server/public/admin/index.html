@@ -13,16 +13,37 @@
       width: 44px;
       height: 44px;
   }
+  .like-image {
+      margin: 0 0 0 5em;
+  }
+  #keyCodeLeftArrow {
+      margin: 0 1em 0 0;
+  }
+  #doTest {
+      position: absolute;
+      right: 0px;
+      top: 1.2em;
+  }
   </style>
 </head>
 
 <body>
 <div class="panel panel-default">
-  <div class="panel-heading">Comment list
+  <div class="panel-heading">
+    <!-- keyEvent -->
+    <button type="button" id="keyCodeLeftArrow" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+    </button>
+    <button type="button" id="keyCodeRightArrow" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-arrow-right"></span>
+    </button>
+
+    <!-- Like -->
     <a id="like" href="#"><img src="/img/FacebookLike.png" class="like-image" /></a>
     <span id="likeCount" class="badge">0</span>
 
-    <button type="button" id="doTest" class="btn btn-default btn-lg">
+    <!-- Test -->
+    <button type="button" id="doTest" class="btn btn-default btn">
         <span class="glyphicon glyphicon-qrcode"></span>
     </button>
   </div>
@@ -70,6 +91,9 @@ $(function() {
     function updateLikeCount(count) {
         $('#likeCount').text(count);
     }
+    function sendTest() {
+        socketio.emit('doTest');
+    }
     function sendLike() {
         socketio.emit('like');
     }
@@ -80,12 +104,18 @@ $(function() {
           $('#comment').val('');
       }
     }
-    function sendTest() {
-        socketio.emit('doTest');
+    function sendKeyEvent(keyCode) {
+        socketio.emit('keyEvent', {'keyCode': keyCode});
     }
 
     $('#doTest').on('click', function() {
         sendTest();
+    });
+    $('#keyCodeLeftArrow').on('click', function() {
+        sendKeyEvent('leftArrow');
+    });
+    $('#keyCodeRightArrow').on('click', function() {
+        sendKeyEvent('rightArrow');
     });
     $('#like').on('click', function() {
         sendLike();
