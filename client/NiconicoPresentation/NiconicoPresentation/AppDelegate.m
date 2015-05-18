@@ -14,7 +14,7 @@
 
 #define HOSTNAME @"localhost"
 #define PORTNUM 80
-#define MAX_MESSAGE_LINE 14
+#define MAX_MESSAGE_LINE 10
 #define MESSAGE_ANIMATION_DURATION 6.0f
 
 //#include <Carbon/Carbon.h>
@@ -70,6 +70,7 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
     }
     // Like
     _likeCountTextField = [self createLikeCountTextField:0];
+    _likeCountTextField.alphaValue = 0.0f;
     [_window.contentView addSubview:_likeCountTextField];
 }
 
@@ -98,8 +99,8 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 
 - (NSTextField *)createMessageLabel:(NSString *)message atIndex:(int)index {
     NSRect frame = _window.screen.visibleFrame;
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-((_messageHeight-6)*index)-8, frame.size.width, _messageHeight)];
-    text.font = [NSFont systemFontOfSize:72.0f];
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-((_messageHeight-6)*index)-20, frame.size.width, _messageHeight)];
+    text.font = [NSFont systemFontOfSize:68.0f];
     text.stringValue = message;
     text.bezeled = NO;
     text.drawsBackground = NO;
@@ -164,10 +165,10 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
     [self addMessage:@"88888888888888888888888888888888888888888888888888888888888888888888888888888888"];
     [self addMessage:@"99999999999999999999999999999999999999999999999999999999999999999999999999999999"];
     [self addMessage:@"10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10"];
-    [self addMessage:@"11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11"];
-    [self addMessage:@"12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12"];
-    [self addMessage:@"13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13"];
-    [self addMessage:@"14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14"];
+//    [self addMessage:@"11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11"];
+//    [self addMessage:@"12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12"];
+//    [self addMessage:@"13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13"];
+//    [self addMessage:@"14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14"];
 
     [self showLike: 999];
 }
