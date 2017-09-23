@@ -7,7 +7,7 @@ var config = require('config');
 var log4js = require('log4js');
 log4js.configure(config.log.configure);
 var logger = log4js.getLogger('socketio');
-logger.setLevel(config.log.level);
+//logger.setLevel(config.log.level);
 
 // httpd
 var http = require('http');
@@ -59,7 +59,8 @@ var server = http.createServer(function(request, response) {
         serveFile(request, response);
     }
 }).listen(config.httpd.port, config.httpd.host, function() {
-    process.setuid(config.httpd.setuid)
+    process.setgid(config.httpd.setgid);
+    process.setuid(config.httpd.setuid);
 });
 
 function serveFile(request, response) {
@@ -126,6 +127,11 @@ var chat = io.sockets.on('connection', function(socket) {
         socket.emit('init', {likeCount:likeCount});
     });
 
+    socket.on('enabled', function(data) {
+        logger.info('enabled [' + remoteAddress + ']: ' + data.value);
+        io.sockets.emit('enabled', {value:data.value});
+    });
+
     socket.on('like', function(data) {
         ++likeCount;
         logger.info('like [' + remoteAddress + ']: ' + likeCount);
@@ -146,7 +152,7 @@ var chat = io.sockets.on('connection', function(socket) {
         logger.info('doTest [' + remoteAddress + ']');
         if (isLocalHost(remoteAddress) || isAdminAddress(remoteAddress)) {
             chat.to('admin').emit('doTest');
-	}
+        }
     });
 
     socket.on('disconnect', function() {
