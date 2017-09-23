@@ -15,7 +15,7 @@
 #define HOSTNAME @"localhost"
 #define PORTNUM 80
 #define MAX_MESSAGE_LINE 10
-#define MESSAGE_ANIMATION_DURATION 6.0f
+#define MESSAGE_ANIMATION_DURATION 3.5f
 
 //#include <Carbon/Carbon.h>
 //kVK_LeftArrow                 = 0x7B,
@@ -270,6 +270,10 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
+    if (_socketIO) {
+        [_socketIO disconnect];
+        [_socketIO disconnectForced];
+    }
 }
 
 @end

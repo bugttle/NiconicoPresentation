@@ -1,8 +1,15 @@
 {
-    "appenders":[{
-        "type": "file",
-        "category": "socketio",
-        "filename": "logs/socketio.log",
-        "pattern": "-yyyy-MM-dd"
-    }]
-} 
+    "appenders": {
+        "socketio": {
+            "type": "file",
+            "filename": "logs/socketio.log",
+            "pattern": "-yyyy-MM-dd"
+        }
+    },
+    "categories": {
+        "default": {
+            "appenders": ["socketio"],
+            "level": "debug"
+        }
+    }
+}
