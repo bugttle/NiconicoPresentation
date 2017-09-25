@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		555DC67257C85D703BA65B3E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E5A18482B19F1F2E16D21D /* libPods.a */; };
+		C10A7C0AC6715FC1B62C08FF /* Pods_NiconicoPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8342EA77D1DB95F097706FD2 /* Pods_NiconicoPresentation.framework */; };
 		CE4CA4021AA9FB4C00A97F67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4011AA9FB4C00A97F67 /* AppDelegate.m */; };
 		CE4CA4041AA9FB4C00A97F67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4031AA9FB4C00A97F67 /* main.m */; };
 		CE4CA4091AA9FB4C00A97F67 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4CA4071AA9FB4C00A97F67 /* MainMenu.xib */; };
@@ -33,7 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20E5A18482B19F1F2E16D21D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		701EFBE1F8B2DE2616D12340 /* Pods-NiconicoPresentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation.debug.xcconfig"; sourceTree = "<group>"; };
+		8342EA77D1DB95F097706FD2 /* Pods_NiconicoPresentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		968745DB4F8B65FBAD67D6B3 /* Pods-NiconicoPresentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentation.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation.release.xcconfig"; sourceTree = "<group>"; };
 		CE4CA3FB1AA9FB4C00A97F67 /* NiconicoPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiconicoPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4CA3FF1AA9FB4C00A97F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE4CA4001AA9FB4C00A97F67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		CE4CA4C11AAB0FFF00A97F67 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
 		CE4CA4C21AAB0FFF00A97F67 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
 		CE4CA4CF1AABE52000A97F67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4CA41F1AA9FC3400A97F67 /* QuartzCore.framework in Frameworks */,
-				555DC67257C85D703BA65B3E /* libPods.a in Frameworks */,
+				C10A7C0AC6715FC1B62C08FF /* Pods_NiconicoPresentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F124A8F5969FF61746E3F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				701EFBE1F8B2DE2616D12340 /* Pods-NiconicoPresentation.debug.xcconfig */,
+				968745DB4F8B65FBAD67D6B3 /* Pods-NiconicoPresentation.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		CE4CA3F21AA9FB4C00A97F67 = {
 			isa = PBXGroup;
 			children = (
@@ -90,7 +99,7 @@
 				CE4CA4A81AAB027F00A97F67 /* Frameworks */,
 				CE4CA4251AAB024C00A97F67 /* Vendor */,
 				CE4CA3FC1AA9FB4C00A97F67 /* Products */,
-				DF64A999AC81B749D85CCFD7 /* Pods */,
+				19F124A8F5969FF61746E3F7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				CE4CA41E1AA9FC3400A97F67 /* QuartzCore.framework */,
-				20E5A18482B19F1F2E16D21D /* libPods.a */,
+				8342EA77D1DB95F097706FD2 /* Pods_NiconicoPresentation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -178,15 +187,6 @@
 			path = "socket.IO-objc";
 			sourceTree = "<group>";
 		};
-		DF64A999AC81B749D85CCFD7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */,
-				EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,11 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE4CA4181AA9FB4C00A97F67 /* Build configuration list for PBXNativeTarget "NiconicoPresentation" */;
 			buildPhases = (
-				BB1D5280BA2B08A7EC2B97B8 /* Check Pods Manifest.lock */,
+				A639B689B5BA7274D482DE1B /* [CP] Check Pods Manifest.lock */,
 				CE4CA3F71AA9FB4C00A97F67 /* Sources */,
 				CE4CA3F81AA9FB4C00A97F67 /* Frameworks */,
 				CE4CA3F91AA9FB4C00A97F67 /* Resources */,
-				35B1FD2977239E4347917A6E /* Copy Pods Resources */,
+				02356622D4F3699CFC8FAE39 /* [CP] Embed Pods Frameworks */,
+				1EAB3CF58B8051071E223E02 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,34 +285,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35B1FD2977239E4347917A6E /* Copy Pods Resources */ = {
+		02356622D4F3699CFC8FAE39 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SocketRocket/SocketRocket.framework",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketRocket.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BB1D5280BA2B08A7EC2B97B8 /* Check Pods Manifest.lock */ = {
+		1EAB3CF58B8051071E223E02 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A639B689B5BA7274D482DE1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NiconicoPresentation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -379,7 +403,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -420,7 +444,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -440,7 +464,7 @@
 		};
 		CE4CA4191AA9FB4C00A97F67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 701EFBE1F8B2DE2616D12340 /* Pods-NiconicoPresentation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -452,7 +476,7 @@
 		};
 		CE4CA41A1AA9FB4C00A97F67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 968745DB4F8B65FBAD67D6B3 /* Pods-NiconicoPresentation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
