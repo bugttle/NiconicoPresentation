@@ -1,3 +1,8 @@
 platform :osx, '10.10'
-pod 'AFNetworking'
-pod 'SocketRocket'
+
+target 'NiconicoPresentation' do
+  use_frameworks!
+
+  pod 'AFNetworking'
+  pod 'SocketRocket'
+end
