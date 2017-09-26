@@ -11,6 +11,6 @@ $ sudo node app.js
 * Client
 
 ```
-$ cd client/NiconicoPresentation
+$ cd client
 $ pod install
 ```
