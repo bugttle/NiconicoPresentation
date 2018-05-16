@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  NiconicoPresentation
 //
-//  Created by UQ Times on 3/7/15.
-//  Copyright (c) 2015 UQ Times. All rights reserved.
+//  Created by bugttle on 3/7/15.
+//  Copyright (c) 2015 bugttle. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -17,7 +17,7 @@
 #define MAX_MESSAGE_LINE 10
 #define MESSAGE_ANIMATION_DURATION 3.5f
 
-//#include <Carbon/Carbon.h>
+// Reference: <Carbon/Carbon.h>
 //kVK_LeftArrow                 = 0x7B,
 //kVK_RightArrow                = 0x7C,
 //kVK_DownArrow                 = 0x7D,
@@ -33,7 +33,9 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 {
     int _messageCounts[MAX_MESSAGE_LINE];
 }
+@property (strong) NSStatusItem *statusItem;
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSMenu *menu;
 @property (assign) float messageHeight;
 @property (strong) NSTextField *likeCountTextField;
 @property (strong) SocketIO *socketIO;
@@ -42,47 +44,95 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    [self initSystemStatusBar];
     [self initWindow];
+    [self initMenu];
     [self initMessages];
     [self initSocketIO];
 }
 
+- (void) initSystemStatusBar {
+    NSStatusBar *systemStatusBar = [NSStatusBar systemStatusBar];
+    self.statusItem = [systemStatusBar statusItemWithLength:NSVariableStatusItemLength];
+    _statusItem.highlightMode = YES;
+    _statusItem.title = @"";
+    _statusItem.image = [NSImage imageNamed:@"SystemIcon"];
+    _statusItem.menu = _menu;
+}
+
 - (void)initWindow {
-    NSRect frame = _window.screen.frame;
+    // Should set "Application is agent (UIElement)" in plist
+    _window.collectionBehavior = NSWindowCollectionBehaviorCanJoinAllSpaces | NSWindowCollectionBehaviorIgnoresCycle | NSWindowCollectionBehaviorFullScreenAuxiliary;
+    _window.level = NSScreenSaverWindowLevel;
     
-    [_window setFrame:frame display:YES animate:NO];
-    [_window makeKeyAndOrderFront:nil];
     _window.opaque = NO;
-    _window.backgroundColor = [NSColor colorWithDeviceRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
-    _window.level = NSScreenSaverWindowLevel;//NSStatusWindowLevel;
+    _window.backgroundColor = [NSColor clearColor];
     _window.ignoresMouseEvents = YES;
     _window.hasShadow = NO;
     _window.styleMask = NSBorderlessWindowMask;
-    //[NSMenu setMenuBarVisible:NO];
+    
+    [self setScreen:_window.screen];
+}
+
+- (void)initMenu {
+    [[NSScreen screens] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSUInteger number = idx + 1;
+        NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Screen %tu", number]
+                                                      action:@selector(onClickScreenMenu:)
+                                               keyEquivalent:[NSString stringWithFormat:@"%tu", number]];
+        item.tag = idx;
+        
+        [_menu insertItem:item atIndex:idx];
+    }];
 }
 
 - (void)initMessages {
     // 1メッセージあたりの高さ
-    _messageHeight = _window.screen.frame.size.height / MAX_MESSAGE_LINE;
+    self.messageHeight = _window.screen.visibleFrame.size.height / MAX_MESSAGE_LINE;
     // メッセージのバッファ
     for (int i = 0; i < MAX_MESSAGE_LINE; ++i) {
         _messageCounts[i] = 0;
     }
     // Like
-    _likeCountTextField = [self createLikeCountTextField:0];
+    self.likeCountTextField = [self createLikeCountTextField:0];
     _likeCountTextField.alphaValue = 0.0f;
+    
     [_window.contentView addSubview:_likeCountTextField];
 }
 
 - (void)initSocketIO {
     if (!_socketIO) {
-        _socketIO = [[SocketIO alloc] initWithDelegate:self];
+        self.socketIO = [[SocketIO alloc] initWithDelegate:self];
     }
-    [_socketIO connectToHost:HOSTNAME onPort:PORTNUM];
+    [self connectToServer];
+}
+
+- (void)connectToServer {
+    if (!_socketIO.isConnected) {
+        [_socketIO connectToHost:HOSTNAME onPort:PORTNUM];
+    }
+}
+
+- (IBAction)onClickServerMenu:(id)sender {
+    [self connectToServer];
+}
+
+- (void)onClickScreenMenu:(id)sender {
+    NSMenuItem *item = (NSMenuItem *)sender;
+    NSArray *screens = [NSScreen screens];
+    
+    NSScreen *screen =    [screens objectAtIndex:item.tag];
+    [self setScreen:screen];
+}
+
+- (void)setScreen:(NSScreen *)screen {
+    NSRect frame = screen.visibleFrame;
+    NSLog(@"frame:%@", NSStringFromSize(frame.size));
+    [_window setFrame:frame display:YES animate:NO];
 }
 
 - (NSTextField *) createLikeCountTextField:(NSInteger)count {
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(70, 80, 200, 40)];
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(70, 30, 200, 40)];
     text.font = [NSFont systemFontOfSize:40.0f];
     text.bezeled = NO;
     text.drawsBackground = NO;
@@ -99,8 +149,9 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 
 - (NSTextField *)createMessageLabel:(NSString *)message atIndex:(int)index {
     NSRect frame = _window.screen.visibleFrame;
-    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-((_messageHeight-6)*index)-20, frame.size.width, _messageHeight)];
-    text.font = [NSFont systemFontOfSize:68.0f];
+    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height - _messageHeight * (index + 1), frame.size.width, _messageHeight)];
+    //    NSTextField *text = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height-((_messageHeight-6)*index), frame.size.width, _messageHeight)];
+    text.font = [NSFont systemFontOfSize:_messageHeight];
     text.stringValue = message;
     text.bezeled = NO;
     text.drawsBackground = NO;
@@ -116,8 +167,8 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 }
 
 - (void)showLike:(NSInteger)count {
-    NSImageView *view = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 90, 200, 171)];
-    view.image = [NSImage imageNamed:@"FacebookLike.png"];
+    NSImageView *view = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, 200, 171)];
+    view.image = [NSImage imageNamed:@"FacebookLike"];
     [_window.contentView addSubview:view positioned:NSWindowBelow relativeTo:_likeCountTextField];
     
     [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
@@ -165,11 +216,7 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
     [self addMessage:@"88888888888888888888888888888888888888888888888888888888888888888888888888888888"];
     [self addMessage:@"99999999999999999999999999999999999999999999999999999999999999999999999999999999"];
     [self addMessage:@"10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10"];
-//    [self addMessage:@"11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11"];
-//    [self addMessage:@"12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12"];
-//    [self addMessage:@"13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13"];
-//    [self addMessage:@"14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14"];
-
+    
     [self showLike: 999];
 }
 
@@ -188,7 +235,7 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
 
 - (void)addMessage:(NSString *)message {
     int index = [self modIndex];
-
+    
     NSTextField *text = [self createMessageLabel:message atIndex:index];
     [_window.contentView addSubview:text];
     
@@ -197,17 +244,16 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
     if (text.frame.size.width < width) {
         [text setFrameSize:CGSizeMake(width, text.frame.size.height)];
     }
-   
+    
     [self animateMessageLabel:text withWidth:width withDuration:MESSAGE_ANIMATION_DURATION atIndex:index];
 }
 
-- (void)animateMessageLabel:(NSView *)view withWidth:(float)width withDuration:(float)duration atIndex:(int)index
-{
+- (void)animateMessageLabel:(NSView *)view withWidth:(float)width withDuration:(float)duration atIndex:(int)index {
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         [view removeFromSuperview];
         --(_messageCounts[index]);
-
+        
         NSMutableString *str = [NSMutableString string];
         for (int i = 1; i < MAX_MESSAGE_LINE; ++i) {
             [str appendFormat:@"%d,", _messageCounts[i]];
@@ -240,8 +286,7 @@ typedef NS_ENUM (NSUInteger, NPKeyCode) {
     });
 }
 
-- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
-{
+- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
     NSLog(@"%s", __func__);
     if ([packet.name isEqualToString:@"init"]) {
         // 初期化

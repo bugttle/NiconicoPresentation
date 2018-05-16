@@ -2,8 +2,8 @@
 //  NiconicoPresentationTests.m
 //  NiconicoPresentationTests
 //
-//  Created by UQ Times on 3/7/15.
-//  Copyright (c) 2015 UQ Times. All rights reserved.
+//  Created by bugttle on 3/7/15.
+//  Copyright (c) 2015 bugttle. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
