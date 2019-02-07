@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusBarManager: StatusBarManager!
     var menuManager: MenuManager!
     var windowManager: WindowManager!
-    var networkClient: NetworkClient!
+    var socketClient: SocketClient!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let board = NSStoryboard(name: "Main", bundle: nil)
@@ -27,9 +27,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarManager = StatusBarManager(menu: menu)
         menuManager = MenuManager(menu: menu, action: #selector(self.onClickScreenSelectMenuItem))
         windowManager = WindowManager(window: windowController.window!)
-        networkClient = NetworkClient(url: URL)
-        networkClient.onPublish = {data, ack in
-            data[0]
+        socketClient = SocketClient(url: URL)
+        socketClient.onComment = {comment in
+            
         }
     }
 
