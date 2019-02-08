@@ -12,6 +12,9 @@ import Cocoa
 class WindowManager: NSObject {
     var window: NSWindow!
     
+    var messageManager: MessageManager!
+    var likeManager: LikeManager!
+
     init(window: NSWindow) {
         super.init()
         
@@ -25,6 +28,9 @@ class WindowManager: NSObject {
         window.styleMask = NSWindow.StyleMask.borderless
         
         self.toScreen(screen: window.screen!)
+        
+        messageManager = MessageManager(window: window)
+        likeManager = LikeManager(window: window)
     }
     
     func toScreen(at: Int) {
@@ -38,15 +44,19 @@ class WindowManager: NSObject {
         self.window.setFrame(screen.visibleFrame, display: true, animate: false)
     }
     
-    func addMessage() {
-        
+    func addMessage(text: String) {
+        messageManager.addMessage(text: text)
     }
     
-    func showLike() {
-        
+    func showLike(count: Int) {
+        likeManager.showLike(count: count)
     }
     
     func postKeyboardEvent(key: CGKeyCode) {
         KeyboardEvent.postKeyboardEvent(key: key)
+    }
+    
+    func doScreenTest() {
+        
     }
 }

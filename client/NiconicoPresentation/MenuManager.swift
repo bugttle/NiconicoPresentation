@@ -15,7 +15,9 @@ class MenuManager: NSObject {
         
         for i in 0 ..< NSScreen.screens.count {
             let number = i + 1
-            let item = NSMenuItem(title: String(format: "Screen %d", number), action: action, keyEquivalent: String(format: "%d", number))
+            let item = NSMenuItem(title: String(format: "Screen %d", number),
+                                  action: action,
+                                  keyEquivalent: String(format: "%d", number))
             item.tag = i
             
             menu.insertItem(item, at: i)

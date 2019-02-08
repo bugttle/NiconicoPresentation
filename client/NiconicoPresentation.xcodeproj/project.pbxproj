@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		16C806036551D8047DFED7A9 /* Pods_NiconicoPresentationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F600BE6631ECEE0F6F55DC5D /* Pods_NiconicoPresentationTests.framework */; };
+		461CB109220D326A00A37CEF /* LikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461CB108220D326A00A37CEF /* LikeManager.swift */; };
 		462F145721815FFC00210F04 /* NS(Attributed)String+Geometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F145621815FFC00210F04 /* NS(Attributed)String+Geometrics.swift */; };
 		462F145B2181709300210F04 /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F145A2181709300210F04 /* KeyboardEvent.swift */; };
 		462F145D218173A600210F04 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F145C218173A600210F04 /* MessageManager.swift */; };
 		462F145F218198A700210F04 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F145E218198A600210F04 /* StatusBarManager.swift */; };
 		462F146121819AAA00210F04 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F146021819AAA00210F04 /* WindowManager.swift */; };
 		462F14632181A0E600210F04 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462F14622181A0E600210F04 /* MenuManager.swift */; };
-		464F369F220AE7C40012FD8C /* SockdtClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F369E220AE7C40012FD8C /* SockdtClient.swift */; };
+		464F369F220AE7C40012FD8C /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F369E220AE7C40012FD8C /* SocketClient.swift */; };
 		4661C82221815C2F00C825A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661C82121815C2F00C825A4 /* AppDelegate.swift */; };
 		4661C82621815C3000C825A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4661C82521815C3000C825A4 /* Assets.xcassets */; };
 		4661C82921815C3000C825A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4661C82721815C3000C825A4 /* Main.storyboard */; };
@@ -34,13 +35,14 @@
 
 /* Begin PBXFileReference section */
 		04B97CE9F881BA3079EC0ADA /* Pods_NiconicoPresentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		461CB108220D326A00A37CEF /* LikeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeManager.swift; sourceTree = "<group>"; };
 		462F145621815FFC00210F04 /* NS(Attributed)String+Geometrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NS(Attributed)String+Geometrics.swift"; sourceTree = "<group>"; };
 		462F145A2181709300210F04 /* KeyboardEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
 		462F145C218173A600210F04 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		462F145E218198A600210F04 /* StatusBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 		462F146021819AAA00210F04 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		462F14622181A0E600210F04 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
-		464F369E220AE7C40012FD8C /* SockdtClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SockdtClient.swift; sourceTree = "<group>"; };
+		464F369E220AE7C40012FD8C /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
 		4661C81E21815C2E00C825A4 /* NiconicoPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiconicoPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4661C82121815C2F00C825A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4661C82521815C3000C825A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,8 +108,9 @@
 				4661C82721815C3000C825A4 /* Main.storyboard */,
 				4661C82A21815C3000C825A4 /* Info.plist */,
 				4661C82B21815C3000C825A4 /* NiconicoPresentation.entitlements */,
-				464F369E220AE7C40012FD8C /* SockdtClient.swift */,
+				464F369E220AE7C40012FD8C /* SocketClient.swift */,
 				462F145A2181709300210F04 /* KeyboardEvent.swift */,
+				461CB108220D326A00A37CEF /* LikeManager.swift */,
 				462F145C218173A600210F04 /* MessageManager.swift */,
 				462F145E218198A600210F04 /* StatusBarManager.swift */,
 				462F146021819AAA00210F04 /* WindowManager.swift */,
@@ -321,10 +324,11 @@
 			files = (
 				462F145721815FFC00210F04 /* NS(Attributed)String+Geometrics.swift in Sources */,
 				462F145B2181709300210F04 /* KeyboardEvent.swift in Sources */,
+				461CB109220D326A00A37CEF /* LikeManager.swift in Sources */,
 				462F145D218173A600210F04 /* MessageManager.swift in Sources */,
 				4661C82221815C2F00C825A4 /* AppDelegate.swift in Sources */,
 				462F145F218198A700210F04 /* StatusBarManager.swift in Sources */,
-				464F369F220AE7C40012FD8C /* SockdtClient.swift in Sources */,
+				464F369F220AE7C40012FD8C /* SocketClient.swift in Sources */,
 				462F146121819AAA00210F04 /* WindowManager.swift in Sources */,
 				462F14632181A0E600210F04 /* MenuManager.swift in Sources */,
 			);

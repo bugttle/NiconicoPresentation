@@ -18,10 +18,11 @@ class MessageManager: NSObject {
     var count = 0
     
     init(window: NSWindow) {
+        super.init()
         self.window = window
     }
     
-    var messageHight: CGFloat {
+    private var messageHight: CGFloat {
         get {
             let screen = self.window.screen!
             return screen.visibleFrame.size.height / CGFloat(MaxMessageLine);
@@ -55,10 +56,10 @@ class MessageManager: NSObject {
         text.usesSingleLineMode = true
         text.wantsLayer = true
         
-        let attributes = [
-            NSAttributedString.Key.strokeWidth: -3.0 as NSNumber?,
-            NSAttributedString.Key.strokeColor: NSColor.white,
-            NSAttributedString.Key.foregroundColor: NSColor.black,
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeWidth: -3.0 as NSNumber,
+            .strokeColor: NSColor.white,
+            .foregroundColor: NSColor.black,
             ]
         text.attributedStringValue = NSAttributedString(string: message, attributes: attributes)
         return text
@@ -80,9 +81,9 @@ class MessageManager: NSObject {
         CATransaction.commit()
     }
     
-    func addMessage(message: String) {
+    func addMessage(text: String) {
         let index = self.nextLeastIndex()
-        let text = self.createTextField(message: message, at: index)
+        let text = self.createTextField(message: text, at: index)
         self.window.contentView?.addSubview(text)
         
         let size = text.attributedStringValue.sizeForWidth(width: CGFloat.greatestFiniteMagnitude, height: self.messageHight)

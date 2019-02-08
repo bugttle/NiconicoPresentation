@@ -16,7 +16,7 @@ class SocketClient: NSObject {
     var onComment: ((String) -> Void)!
     var onLike: ((Int) -> Void)!
     var onKey: ((String) -> Void)!
-    var onTest: ((Void) -> Void)!
+    var onTest: (() -> Void)!
     
     var onPublish: NormalCallback?
     
@@ -34,7 +34,7 @@ class SocketClient: NSObject {
         }
         socket.on("comment") {data, ack in
             guard let comment = data[0] as? String else { return }
-            self.onComment(commend);
+            self.onComment(comment);
         }
         socket.on("like") {data, ack in
             guard let like = data[0] as? Int else { return }
@@ -44,7 +44,7 @@ class SocketClient: NSObject {
             guard let key = data[0] as? String else { return }
             self.onKey(key);
         }
-        socket.on("test") {
+        socket.on("test") {data, ack in
             self.onTest();
         }
         socket.connect()
