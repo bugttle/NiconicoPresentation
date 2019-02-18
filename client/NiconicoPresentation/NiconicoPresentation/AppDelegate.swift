@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  NiconicoPresentation
 //
-//  Created by Tsuruda, Ryo on 2018/10/25.
-//  Copyright © 2018年 bugttle. All rights reserved.
+//  Created by bugttle on 3/7/15.
+//  Copyright © 2015 bugttle. All rights reserved.
 //
 
 import Cocoa
@@ -19,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var menuManager: MenuManager!
     var windowManager: WindowManager!
     var socketClient: SocketClient!
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let board = NSStoryboard(name: "Main", bundle: nil)
         let windowController = board.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
@@ -31,11 +31,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.socketClient = self.createSocketIO(url: URL)
         self.socketClient.connect()
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         self.socketClient.disconnect()
     }
-
+    
     func createSocketIO(url: String) -> SocketClient! {
         let client = SocketClient(url: url)
         client.onComment = {comment in

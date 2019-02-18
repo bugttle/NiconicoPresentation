@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -676,23 +676,23 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NiconicoPresentation" customModuleProvider="target">
                     <connections>
-                        <outlet property="menu" destination="tt9-Vi-Cpr" id="l01-Th-5D3"/>
+                        <outlet property="menu" destination="mkl-zS-PzZ" id="4vi-mp-QAO"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
-                <menu id="tt9-Vi-Cpr">
+                <menu id="mkl-zS-PzZ">
                     <items>
-                        <menuItem isSeparatorItem="YES" id="h5c-cE-k4B"/>
-                        <menuItem title="Connect to the local server" id="5Ib-gF-sGd">
+                        <menuItem isSeparatorItem="YES" id="PaE-5d-JDR"/>
+                        <menuItem title="Connect to the local server" id="vRP-IT-ZIx" userLabel="Connect to the local server">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="onClickConnectToServerMenuItem:" target="Voe-Tx-rLC" id="eG1-I7-Jcq"/>
+                                <action selector="onClickConnectToServerMenuItem:" target="Voe-Tx-rLC" id="qV5-DH-AeP"/>
                             </connections>
                         </menuItem>
-                        <menuItem isSeparatorItem="YES" id="KpT-Sa-OLV"/>
-                        <menuItem title="Quit NiconicoPresentation" keyEquivalent="q" id="RaI-mw-WEj">
+                        <menuItem isSeparatorItem="YES" id="Nxf-4v-PQo"/>
+                        <menuItem title="Quit NiconicoPresentation" keyEquivalent="q" id="4TD-BZ-cDY">
                             <connections>
-                                <action selector="terminate:" target="Ady-hI-5gd" id="vmD-sS-K4G"/>
+                                <action selector="terminate:" target="Ady-hI-5gd" id="xWM-h0-NSP"/>
                             </connections>
                         </menuItem>
                     </items>
@@ -710,7 +710,7 @@
                         <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" ignoresCycle="YES" fullScreenAuxiliary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>

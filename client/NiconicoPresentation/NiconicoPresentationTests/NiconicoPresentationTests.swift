@@ -2,8 +2,8 @@
 //  NiconicoPresentationTests.swift
 //  NiconicoPresentationTests
 //
-//  Created by Tsuruda, Ryo on 2018/10/25.
-//  Copyright © 2018年 bugttle. All rights reserved.
+//  Created by Ryo Tsuruda on 2/18/19.
+//  Copyright © 2015 bugttle. All rights reserved.
 //
 
 import XCTest

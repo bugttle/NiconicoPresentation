@@ -3,186 +3,184 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		555DC67257C85D703BA65B3E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20E5A18482B19F1F2E16D21D /* libPods.a */; };
-		CE4CA4021AA9FB4C00A97F67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4011AA9FB4C00A97F67 /* AppDelegate.m */; };
-		CE4CA4041AA9FB4C00A97F67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4031AA9FB4C00A97F67 /* main.m */; };
-		CE4CA4091AA9FB4C00A97F67 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4CA4071AA9FB4C00A97F67 /* MainMenu.xib */; };
-		CE4CA4151AA9FB4C00A97F67 /* NiconicoPresentationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4141AA9FB4C00A97F67 /* NiconicoPresentationTests.m */; };
-		CE4CA41F1AA9FC3400A97F67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4CA41E1AA9FC3400A97F67 /* QuartzCore.framework */; };
-		CE4CA4241AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4231AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.m */; };
-		CE4CA4C51AAB0FFF00A97F67 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4B91AAB0FFF00A97F67 /* SocketIO.m */; };
-		CE4CA4C61AAB0FFF00A97F67 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4BB1AAB0FFF00A97F67 /* SocketIOJSONSerialization.m */; };
-		CE4CA4C71AAB0FFF00A97F67 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4BD1AAB0FFF00A97F67 /* SocketIOPacket.m */; };
-		CE4CA4C81AAB0FFF00A97F67 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4C01AAB0FFF00A97F67 /* SocketIOTransportWebsocket.m */; };
-		CE4CA4C91AAB0FFF00A97F67 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4CA4C21AAB0FFF00A97F67 /* SocketIOTransportXHR.m */; };
-		CE4CA4D01AABE52000A97F67 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4CA4CF1AABE52000A97F67 /* Images.xcassets */; };
+		21C9E5F58A96A6CD429A1E7B /* Pods_NiconicoPresentationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5638EC76D4B51BF1F3923AF /* Pods_NiconicoPresentationTests.framework */; };
+		C2B19E85D33F116598E352FF /* Pods_NiconicoPresentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD51F67F3D1FBF7E58FF2FD /* Pods_NiconicoPresentation.framework */; };
+		CEA28547221AE73D00345AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28546221AE73D00345AE1 /* AppDelegate.swift */; };
+		CEA2854B221AE73F00345AE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA2854A221AE73F00345AE1 /* Assets.xcassets */; };
+		CEA2854E221AE73F00345AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA2854C221AE73F00345AE1 /* Main.storyboard */; };
+		CEA2855A221AE73F00345AE1 /* NiconicoPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28559221AE73F00345AE1 /* NiconicoPresentationTests.swift */; };
+		CEA28565221AE73F00345AE1 /* NiconicoPresentationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28564221AE73F00345AE1 /* NiconicoPresentationUITests.swift */; };
+		CEA2858B221AE9FB00345AE1 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28582221AE9FA00345AE1 /* MenuManager.swift */; };
+		CEA2858C221AE9FB00345AE1 /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28583221AE9FA00345AE1 /* SocketClient.swift */; };
+		CEA2858D221AE9FB00345AE1 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28584221AE9FA00345AE1 /* MessageManager.swift */; };
+		CEA2858E221AE9FB00345AE1 /* LikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28585221AE9FB00345AE1 /* LikeManager.swift */; };
+		CEA2858F221AE9FB00345AE1 /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28586221AE9FB00345AE1 /* StatusBarManager.swift */; };
+		CEA28590221AE9FB00345AE1 /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28587221AE9FB00345AE1 /* KeyboardEvent.swift */; };
+		CEA28591221AE9FB00345AE1 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA28588221AE9FB00345AE1 /* WindowManager.swift */; };
+		CEA28593221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA2858A221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift */; };
+		E7583ED16EE0A64352FB15B6 /* Pods_NiconicoPresentationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA83785581C459E80A6A4C4B /* Pods_NiconicoPresentationUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CE4CA40F1AA9FB4C00A97F67 /* PBXContainerItemProxy */ = {
+		CEA28556221AE73F00345AE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CE4CA3F31AA9FB4C00A97F67 /* Project object */;
+			containerPortal = CEA2853B221AE73D00345AE1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CE4CA3FA1AA9FB4C00A97F67;
+			remoteGlobalIDString = CEA28542221AE73D00345AE1;
+			remoteInfo = NiconicoPresentation;
+		};
+		CEA28561221AE73F00345AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEA2853B221AE73D00345AE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEA28542221AE73D00345AE1;
 			remoteInfo = NiconicoPresentation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20E5A18482B19F1F2E16D21D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4CA3FB1AA9FB4C00A97F67 /* NiconicoPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiconicoPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4CA3FF1AA9FB4C00A97F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4CA4001AA9FB4C00A97F67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CE4CA4011AA9FB4C00A97F67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CE4CA4031AA9FB4C00A97F67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE4CA4081AA9FB4C00A97F67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CE4CA40E1AA9FB4C00A97F67 /* NiconicoPresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiconicoPresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4CA4131AA9FB4C00A97F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4CA4141AA9FB4C00A97F67 /* NiconicoPresentationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NiconicoPresentationTests.m; sourceTree = "<group>"; };
-		CE4CA41E1AA9FC3400A97F67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CE4CA4221AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NS(Attributed)String+Geometrics.h"; sourceTree = "<group>"; };
-		CE4CA4231AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NS(Attributed)String+Geometrics.m"; sourceTree = "<group>"; };
-		CE4CA4B81AAB0FFF00A97F67 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		CE4CA4B91AAB0FFF00A97F67 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		CE4CA4BA1AAB0FFF00A97F67 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
-		CE4CA4BB1AAB0FFF00A97F67 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
-		CE4CA4BC1AAB0FFF00A97F67 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
-		CE4CA4BD1AAB0FFF00A97F67 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
-		CE4CA4BE1AAB0FFF00A97F67 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
-		CE4CA4BF1AAB0FFF00A97F67 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
-		CE4CA4C01AAB0FFF00A97F67 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
-		CE4CA4C11AAB0FFF00A97F67 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
-		CE4CA4C21AAB0FFF00A97F67 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
-		CE4CA4CF1AABE52000A97F67 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		04CD6989941AED0FBAD99FEF /* Pods-NiconicoPresentationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationTests/Pods-NiconicoPresentationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1E0DC7FE6C7A9C05E998DC38 /* Pods-NiconicoPresentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentation.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation.release.xcconfig"; sourceTree = "<group>"; };
+		220CC4CE9D99D82464364556 /* Pods-NiconicoPresentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation.debug.xcconfig"; sourceTree = "<group>"; };
+		34633A10026A69CA7F9A5DC3 /* Pods-NiconicoPresentationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationUITests/Pods-NiconicoPresentationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6AB24AFB73A327D123A6A006 /* Pods-NiconicoPresentationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationUITests/Pods-NiconicoPresentationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ACD51F67F3D1FBF7E58FF2FD /* Pods_NiconicoPresentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2F3A09D0CC487F5008904D5 /* Pods-NiconicoPresentationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationTests/Pods-NiconicoPresentationTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEA28543221AE73D00345AE1 /* NiconicoPresentation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiconicoPresentation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA28546221AE73D00345AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEA2854A221AE73F00345AE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEA2854D221AE73F00345AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEA2854F221AE73F00345AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA28550221AE73F00345AE1 /* NiconicoPresentation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NiconicoPresentation.entitlements; sourceTree = "<group>"; };
+		CEA28555221AE73F00345AE1 /* NiconicoPresentationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiconicoPresentationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA28559221AE73F00345AE1 /* NiconicoPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiconicoPresentationTests.swift; sourceTree = "<group>"; };
+		CEA2855B221AE73F00345AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA28560221AE73F00345AE1 /* NiconicoPresentationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiconicoPresentationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA28564221AE73F00345AE1 /* NiconicoPresentationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiconicoPresentationUITests.swift; sourceTree = "<group>"; };
+		CEA28566221AE73F00345AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA28582221AE9FA00345AE1 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		CEA28583221AE9FA00345AE1 /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
+		CEA28584221AE9FA00345AE1 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		CEA28585221AE9FB00345AE1 /* LikeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeManager.swift; sourceTree = "<group>"; };
+		CEA28586221AE9FB00345AE1 /* StatusBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
+		CEA28587221AE9FB00345AE1 /* KeyboardEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardEvent.swift; sourceTree = "<group>"; };
+		CEA28588221AE9FB00345AE1 /* WindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		CEA2858A221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NS(Attributed)String+Geometrics.swift"; sourceTree = "<group>"; };
+		D5638EC76D4B51BF1F3923AF /* Pods_NiconicoPresentationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA83785581C459E80A6A4C4B /* Pods_NiconicoPresentationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE4CA3F81AA9FB4C00A97F67 /* Frameworks */ = {
+		CEA28540221AE73D00345AE1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4CA41F1AA9FC3400A97F67 /* QuartzCore.framework in Frameworks */,
-				555DC67257C85D703BA65B3E /* libPods.a in Frameworks */,
+				C2B19E85D33F116598E352FF /* Pods_NiconicoPresentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE4CA40B1AA9FB4C00A97F67 /* Frameworks */ = {
+		CEA28552221AE73F00345AE1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21C9E5F58A96A6CD429A1E7B /* Pods_NiconicoPresentationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEA2855D221AE73F00345AE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7583ED16EE0A64352FB15B6 /* Pods_NiconicoPresentationUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE4CA3F21AA9FB4C00A97F67 = {
+		441377197776D4E2741EE1EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE4CA3FD1AA9FB4C00A97F67 /* NiconicoPresentation */,
-				CE4CA4111AA9FB4C00A97F67 /* NiconicoPresentationTests */,
-				CE4CA4A81AAB027F00A97F67 /* Frameworks */,
-				CE4CA4251AAB024C00A97F67 /* Vendor */,
-				CE4CA3FC1AA9FB4C00A97F67 /* Products */,
-				DF64A999AC81B749D85CCFD7 /* Pods */,
-			);
-			sourceTree = "<group>";
-		};
-		CE4CA3FC1AA9FB4C00A97F67 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA3FB1AA9FB4C00A97F67 /* NiconicoPresentation.app */,
-				CE4CA40E1AA9FB4C00A97F67 /* NiconicoPresentationTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CE4CA3FD1AA9FB4C00A97F67 /* NiconicoPresentation */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA4001AA9FB4C00A97F67 /* AppDelegate.h */,
-				CE4CA4011AA9FB4C00A97F67 /* AppDelegate.m */,
-				CE4CA4071AA9FB4C00A97F67 /* MainMenu.xib */,
-				CE4CA4CF1AABE52000A97F67 /* Images.xcassets */,
-				CE4CA3FE1AA9FB4C00A97F67 /* Supporting Files */,
-				CE4CA4221AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.h */,
-				CE4CA4231AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.m */,
-			);
-			path = NiconicoPresentation;
-			sourceTree = "<group>";
-		};
-		CE4CA3FE1AA9FB4C00A97F67 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA3FF1AA9FB4C00A97F67 /* Info.plist */,
-				CE4CA4031AA9FB4C00A97F67 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CE4CA4111AA9FB4C00A97F67 /* NiconicoPresentationTests */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA4141AA9FB4C00A97F67 /* NiconicoPresentationTests.m */,
-				CE4CA4121AA9FB4C00A97F67 /* Supporting Files */,
-			);
-			path = NiconicoPresentationTests;
-			sourceTree = "<group>";
-		};
-		CE4CA4121AA9FB4C00A97F67 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA4131AA9FB4C00A97F67 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CE4CA4251AAB024C00A97F67 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA4B51AAB0FFF00A97F67 /* socket.IO-objc */,
-			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		CE4CA4A81AAB027F00A97F67 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CE4CA41E1AA9FC3400A97F67 /* QuartzCore.framework */,
-				20E5A18482B19F1F2E16D21D /* libPods.a */,
+				ACD51F67F3D1FBF7E58FF2FD /* Pods_NiconicoPresentation.framework */,
+				D5638EC76D4B51BF1F3923AF /* Pods_NiconicoPresentationTests.framework */,
+				FA83785581C459E80A6A4C4B /* Pods_NiconicoPresentationUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE4CA4B51AAB0FFF00A97F67 /* socket.IO-objc */ = {
+		CEA2853A221AE73D00345AE1 = {
 			isa = PBXGroup;
 			children = (
-				CE4CA4B81AAB0FFF00A97F67 /* SocketIO.h */,
-				CE4CA4B91AAB0FFF00A97F67 /* SocketIO.m */,
-				CE4CA4BA1AAB0FFF00A97F67 /* SocketIOJSONSerialization.h */,
-				CE4CA4BB1AAB0FFF00A97F67 /* SocketIOJSONSerialization.m */,
-				CE4CA4BC1AAB0FFF00A97F67 /* SocketIOPacket.h */,
-				CE4CA4BD1AAB0FFF00A97F67 /* SocketIOPacket.m */,
-				CE4CA4BE1AAB0FFF00A97F67 /* SocketIOTransport.h */,
-				CE4CA4BF1AAB0FFF00A97F67 /* SocketIOTransportWebsocket.h */,
-				CE4CA4C01AAB0FFF00A97F67 /* SocketIOTransportWebsocket.m */,
-				CE4CA4C11AAB0FFF00A97F67 /* SocketIOTransportXHR.h */,
-				CE4CA4C21AAB0FFF00A97F67 /* SocketIOTransportXHR.m */,
+				CEA28545221AE73D00345AE1 /* NiconicoPresentation */,
+				CEA28558221AE73F00345AE1 /* NiconicoPresentationTests */,
+				CEA28563221AE73F00345AE1 /* NiconicoPresentationUITests */,
+				CEA28544221AE73D00345AE1 /* Products */,
+				E68B19039EBE1FE5D0D5A85C /* Pods */,
+				441377197776D4E2741EE1EF /* Frameworks */,
 			);
-			path = "socket.IO-objc";
 			sourceTree = "<group>";
 		};
-		DF64A999AC81B749D85CCFD7 /* Pods */ = {
+		CEA28544221AE73D00345AE1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */,
-				EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */,
+				CEA28543221AE73D00345AE1 /* NiconicoPresentation.app */,
+				CEA28555221AE73F00345AE1 /* NiconicoPresentationTests.xctest */,
+				CEA28560221AE73F00345AE1 /* NiconicoPresentationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEA28545221AE73D00345AE1 /* NiconicoPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				CEA28546221AE73D00345AE1 /* AppDelegate.swift */,
+				CEA2854A221AE73F00345AE1 /* Assets.xcassets */,
+				CEA2854C221AE73F00345AE1 /* Main.storyboard */,
+				CEA2854F221AE73F00345AE1 /* Info.plist */,
+				CEA28550221AE73F00345AE1 /* NiconicoPresentation.entitlements */,
+				CEA28587221AE9FB00345AE1 /* KeyboardEvent.swift */,
+				CEA28585221AE9FB00345AE1 /* LikeManager.swift */,
+				CEA28582221AE9FA00345AE1 /* MenuManager.swift */,
+				CEA28584221AE9FA00345AE1 /* MessageManager.swift */,
+				CEA2858A221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift */,
+				CEA28583221AE9FA00345AE1 /* SocketClient.swift */,
+				CEA28586221AE9FB00345AE1 /* StatusBarManager.swift */,
+				CEA28588221AE9FB00345AE1 /* WindowManager.swift */,
+			);
+			path = NiconicoPresentation;
+			sourceTree = "<group>";
+		};
+		CEA28558221AE73F00345AE1 /* NiconicoPresentationTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEA28559221AE73F00345AE1 /* NiconicoPresentationTests.swift */,
+				CEA2855B221AE73F00345AE1 /* Info.plist */,
+			);
+			path = NiconicoPresentationTests;
+			sourceTree = "<group>";
+		};
+		CEA28563221AE73F00345AE1 /* NiconicoPresentationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CEA28564221AE73F00345AE1 /* NiconicoPresentationUITests.swift */,
+				CEA28566221AE73F00345AE1 /* Info.plist */,
+			);
+			path = NiconicoPresentationUITests;
+			sourceTree = "<group>";
+		};
+		E68B19039EBE1FE5D0D5A85C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				220CC4CE9D99D82464364556 /* Pods-NiconicoPresentation.debug.xcconfig */,
+				1E0DC7FE6C7A9C05E998DC38 /* Pods-NiconicoPresentation.release.xcconfig */,
+				04CD6989941AED0FBAD99FEF /* Pods-NiconicoPresentationTests.debug.xcconfig */,
+				B2F3A09D0CC487F5008904D5 /* Pods-NiconicoPresentationTests.release.xcconfig */,
+				34633A10026A69CA7F9A5DC3 /* Pods-NiconicoPresentationUITests.debug.xcconfig */,
+				6AB24AFB73A327D123A6A006 /* Pods-NiconicoPresentationUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -190,15 +188,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE4CA3FA1AA9FB4C00A97F67 /* NiconicoPresentation */ = {
+		CEA28542221AE73D00345AE1 /* NiconicoPresentation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE4CA4181AA9FB4C00A97F67 /* Build configuration list for PBXNativeTarget "NiconicoPresentation" */;
+			buildConfigurationList = CEA28569221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentation" */;
 			buildPhases = (
-				BB1D5280BA2B08A7EC2B97B8 /* Check Pods Manifest.lock */,
-				CE4CA3F71AA9FB4C00A97F67 /* Sources */,
-				CE4CA3F81AA9FB4C00A97F67 /* Frameworks */,
-				CE4CA3F91AA9FB4C00A97F67 /* Resources */,
-				35B1FD2977239E4347917A6E /* Copy Pods Resources */,
+				46F7A616F6E4FD6BDA90884A /* [CP] Check Pods Manifest.lock */,
+				CEA2853F221AE73D00345AE1 /* Sources */,
+				CEA28540221AE73D00345AE1 /* Frameworks */,
+				CEA28541221AE73D00345AE1 /* Resources */,
+				23881CAC1E2FE6B7358334B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -206,75 +204,108 @@
 			);
 			name = NiconicoPresentation;
 			productName = NiconicoPresentation;
-			productReference = CE4CA3FB1AA9FB4C00A97F67 /* NiconicoPresentation.app */;
+			productReference = CEA28543221AE73D00345AE1 /* NiconicoPresentation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE4CA40D1AA9FB4C00A97F67 /* NiconicoPresentationTests */ = {
+		CEA28554221AE73F00345AE1 /* NiconicoPresentationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE4CA41B1AA9FB4C00A97F67 /* Build configuration list for PBXNativeTarget "NiconicoPresentationTests" */;
+			buildConfigurationList = CEA2856C221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentationTests" */;
 			buildPhases = (
-				CE4CA40A1AA9FB4C00A97F67 /* Sources */,
-				CE4CA40B1AA9FB4C00A97F67 /* Frameworks */,
-				CE4CA40C1AA9FB4C00A97F67 /* Resources */,
+				BE6235F5468FC44AD893B25D /* [CP] Check Pods Manifest.lock */,
+				CEA28551221AE73F00345AE1 /* Sources */,
+				CEA28552221AE73F00345AE1 /* Frameworks */,
+				CEA28553221AE73F00345AE1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CE4CA4101AA9FB4C00A97F67 /* PBXTargetDependency */,
+				CEA28557221AE73F00345AE1 /* PBXTargetDependency */,
 			);
 			name = NiconicoPresentationTests;
 			productName = NiconicoPresentationTests;
-			productReference = CE4CA40E1AA9FB4C00A97F67 /* NiconicoPresentationTests.xctest */;
+			productReference = CEA28555221AE73F00345AE1 /* NiconicoPresentationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CEA2855F221AE73F00345AE1 /* NiconicoPresentationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEA2856F221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentationUITests" */;
+			buildPhases = (
+				B79F554739FFEB0FD1B19A22 /* [CP] Check Pods Manifest.lock */,
+				CEA2855C221AE73F00345AE1 /* Sources */,
+				CEA2855D221AE73F00345AE1 /* Frameworks */,
+				CEA2855E221AE73F00345AE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEA28562221AE73F00345AE1 /* PBXTargetDependency */,
+			);
+			name = NiconicoPresentationUITests;
+			productName = NiconicoPresentationUITests;
+			productReference = CEA28560221AE73F00345AE1 /* NiconicoPresentationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE4CA3F31AA9FB4C00A97F67 /* Project object */ = {
+		CEA2853B221AE73D00345AE1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "UQ Times";
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = bugttle;
 				TargetAttributes = {
-					CE4CA3FA1AA9FB4C00A97F67 = {
-						CreatedOnToolsVersion = 6.1.1;
+					CEA28542221AE73D00345AE1 = {
+						CreatedOnToolsVersion = 10.1;
 					};
-					CE4CA40D1AA9FB4C00A97F67 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = CE4CA3FA1AA9FB4C00A97F67;
+					CEA28554221AE73F00345AE1 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CEA28542221AE73D00345AE1;
+					};
+					CEA2855F221AE73F00345AE1 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = CEA28542221AE73D00345AE1;
 					};
 				};
 			};
-			buildConfigurationList = CE4CA3F61AA9FB4C00A97F67 /* Build configuration list for PBXProject "NiconicoPresentation" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = CEA2853E221AE73D00345AE1 /* Build configuration list for PBXProject "NiconicoPresentation" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = CE4CA3F21AA9FB4C00A97F67;
-			productRefGroup = CE4CA3FC1AA9FB4C00A97F67 /* Products */;
+			mainGroup = CEA2853A221AE73D00345AE1;
+			productRefGroup = CEA28544221AE73D00345AE1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE4CA3FA1AA9FB4C00A97F67 /* NiconicoPresentation */,
-				CE4CA40D1AA9FB4C00A97F67 /* NiconicoPresentationTests */,
+				CEA28542221AE73D00345AE1 /* NiconicoPresentation */,
+				CEA28554221AE73F00345AE1 /* NiconicoPresentationTests */,
+				CEA2855F221AE73F00345AE1 /* NiconicoPresentationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE4CA3F91AA9FB4C00A97F67 /* Resources */ = {
+		CEA28541221AE73D00345AE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4CA4091AA9FB4C00A97F67 /* MainMenu.xib in Resources */,
-				CE4CA4D01AABE52000A97F67 /* Images.xcassets in Resources */,
+				CEA2854B221AE73F00345AE1 /* Assets.xcassets in Resources */,
+				CEA2854E221AE73F00345AE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE4CA40C1AA9FB4C00A97F67 /* Resources */ = {
+		CEA28553221AE73F00345AE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEA2855E221AE73F00345AE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -284,251 +315,445 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35B1FD2977239E4347917A6E /* Copy Pods Resources */ = {
+		23881CAC1E2FE6B7358334B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiconicoPresentation/Pods-NiconicoPresentation-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BB1D5280BA2B08A7EC2B97B8 /* Check Pods Manifest.lock */ = {
+		46F7A616F6E4FD6BDA90884A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NiconicoPresentation-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B79F554739FFEB0FD1B19A22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NiconicoPresentationUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE6235F5468FC44AD893B25D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NiconicoPresentationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE4CA3F71AA9FB4C00A97F67 /* Sources */ = {
+		CEA2853F221AE73D00345AE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4CA4041AA9FB4C00A97F67 /* main.m in Sources */,
-				CE4CA4C91AAB0FFF00A97F67 /* SocketIOTransportXHR.m in Sources */,
-				CE4CA4C81AAB0FFF00A97F67 /* SocketIOTransportWebsocket.m in Sources */,
-				CE4CA4241AAA6F5D00A97F67 /* NS(Attributed)String+Geometrics.m in Sources */,
-				CE4CA4C71AAB0FFF00A97F67 /* SocketIOPacket.m in Sources */,
-				CE4CA4C61AAB0FFF00A97F67 /* SocketIOJSONSerialization.m in Sources */,
-				CE4CA4C51AAB0FFF00A97F67 /* SocketIO.m in Sources */,
-				CE4CA4021AA9FB4C00A97F67 /* AppDelegate.m in Sources */,
+				CEA28593221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift in Sources */,
+				CEA2858B221AE9FB00345AE1 /* MenuManager.swift in Sources */,
+				CEA28590221AE9FB00345AE1 /* KeyboardEvent.swift in Sources */,
+				CEA2858C221AE9FB00345AE1 /* SocketClient.swift in Sources */,
+				CEA2858E221AE9FB00345AE1 /* LikeManager.swift in Sources */,
+				CEA2858F221AE9FB00345AE1 /* StatusBarManager.swift in Sources */,
+				CEA28591221AE9FB00345AE1 /* WindowManager.swift in Sources */,
+				CEA2858D221AE9FB00345AE1 /* MessageManager.swift in Sources */,
+				CEA28547221AE73D00345AE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CE4CA40A1AA9FB4C00A97F67 /* Sources */ = {
+		CEA28551221AE73F00345AE1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4CA4151AA9FB4C00A97F67 /* NiconicoPresentationTests.m in Sources */,
+				CEA2855A221AE73F00345AE1 /* NiconicoPresentationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEA2855C221AE73F00345AE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA28565221AE73F00345AE1 /* NiconicoPresentationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CE4CA4101AA9FB4C00A97F67 /* PBXTargetDependency */ = {
+		CEA28557221AE73F00345AE1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE4CA3FA1AA9FB4C00A97F67 /* NiconicoPresentation */;
-			targetProxy = CE4CA40F1AA9FB4C00A97F67 /* PBXContainerItemProxy */;
+			target = CEA28542221AE73D00345AE1 /* NiconicoPresentation */;
+			targetProxy = CEA28556221AE73F00345AE1 /* PBXContainerItemProxy */;
+		};
+		CEA28562221AE73F00345AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEA28542221AE73D00345AE1 /* NiconicoPresentation */;
+			targetProxy = CEA28561221AE73F00345AE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE4CA4071AA9FB4C00A97F67 /* MainMenu.xib */ = {
+		CEA2854C221AE73F00345AE1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE4CA4081AA9FB4C00A97F67 /* Base */,
+				CEA2854D221AE73F00345AE1 /* Base */,
 			);
-			name = MainMenu.xib;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CE4CA4161AA9FB4C00A97F67 /* Debug */ = {
+		CEA28567221AE73F00345AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		CE4CA4171AA9FB4C00A97F67 /* Release */ = {
+		CEA28568221AE73F00345AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COPY_PHASE_STRIP = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
-		CE4CA4191AA9FB4C00A97F67 /* Debug */ = {
+		CEA2856A221AE73F00345AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6E5E598CB010D70674A5557 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 220CC4CE9D99D82464364556 /* Pods-NiconicoPresentation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NiconicoPresentation/NiconicoPresentation.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
 				INFOPLIST_FILE = NiconicoPresentation/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
-		CE4CA41A1AA9FB4C00A97F67 /* Release */ = {
+		CEA2856B221AE73F00345AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA308624637C602CBCBAD2B5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1E0DC7FE6C7A9C05E998DC38 /* Pods-NiconicoPresentation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NiconicoPresentation/NiconicoPresentation.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
 				INFOPLIST_FILE = NiconicoPresentation/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
-		CE4CA41C1AA9FB4C00A97F67 /* Debug */ = {
+		CEA2856D221AE73F00345AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04CD6989941AED0FBAD99FEF /* Pods-NiconicoPresentationTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
 				INFOPLIST_FILE = NiconicoPresentationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiconicoPresentation.app/Contents/MacOS/NiconicoPresentation";
 			};
 			name = Debug;
 		};
-		CE4CA41D1AA9FB4C00A97F67 /* Release */ = {
+		CEA2856E221AE73F00345AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2F3A09D0CC487F5008904D5 /* Pods-NiconicoPresentationTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
 				INFOPLIST_FILE = NiconicoPresentationTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiconicoPresentation.app/Contents/MacOS/NiconicoPresentation";
+			};
+			name = Release;
+		};
+		CEA28570221AE73F00345AE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34633A10026A69CA7F9A5DC3 /* Pods-NiconicoPresentationUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
+				INFOPLIST_FILE = NiconicoPresentationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = NiconicoPresentation;
+			};
+			name = Debug;
+		};
+		CEA28571221AE73F00345AE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AB24AFB73A327D123A6A006 /* Pods-NiconicoPresentationUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 5C8E2YMVWW;
+				INFOPLIST_FILE = NiconicoPresentationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blogspot.bugttle.apps.NiconicoPresentationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TEST_TARGET_NAME = NiconicoPresentation;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE4CA3F61AA9FB4C00A97F67 /* Build configuration list for PBXProject "NiconicoPresentation" */ = {
+		CEA2853E221AE73D00345AE1 /* Build configuration list for PBXProject "NiconicoPresentation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE4CA4161AA9FB4C00A97F67 /* Debug */,
-				CE4CA4171AA9FB4C00A97F67 /* Release */,
+				CEA28567221AE73F00345AE1 /* Debug */,
+				CEA28568221AE73F00345AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE4CA4181AA9FB4C00A97F67 /* Build configuration list for PBXNativeTarget "NiconicoPresentation" */ = {
+		CEA28569221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE4CA4191AA9FB4C00A97F67 /* Debug */,
-				CE4CA41A1AA9FB4C00A97F67 /* Release */,
+				CEA2856A221AE73F00345AE1 /* Debug */,
+				CEA2856B221AE73F00345AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE4CA41B1AA9FB4C00A97F67 /* Build configuration list for PBXNativeTarget "NiconicoPresentationTests" */ = {
+		CEA2856C221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE4CA41C1AA9FB4C00A97F67 /* Debug */,
-				CE4CA41D1AA9FB4C00A97F67 /* Release */,
+				CEA2856D221AE73F00345AE1 /* Debug */,
+				CEA2856E221AE73F00345AE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEA2856F221AE73F00345AE1 /* Build configuration list for PBXNativeTarget "NiconicoPresentationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEA28570221AE73F00345AE1 /* Debug */,
+				CEA28571221AE73F00345AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE4CA3F31AA9FB4C00A97F67 /* Project object */;
+	rootObject = CEA2853B221AE73D00345AE1 /* Project object */;
 }

@@ -2,8 +2,8 @@
 //  KeyboardEvent.swift
 //  NiconicoPresentation
 //
-//  Created by Tsuruda, Ryo on 2018/10/25.
-//  Copyright © 2018年 bugttle. All rights reserved.
+//  Created by bugttle on 3/7/15.
+//  Copyright © 2015 bugttle. All rights reserved.
 //
 
 import Foundation
