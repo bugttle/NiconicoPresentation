@@ -7,7 +7,7 @@
         "hostname": "0.0.0.0",
         "port": 80,
         "setgid": "wheel",
-        "setuid": "tsurudar"
+        "setuid": "bugttle"
     },
     "auth": {
         "username": "admin",
