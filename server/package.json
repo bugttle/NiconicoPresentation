@@ -4,9 +4,9 @@
   "private": true,
   "description": "Niconico Presentation Server",
   "scripts": {
-    "install": "npm run --prefix app npm-install && npm run --prefix content-server npm-install",
+    "install": "npm run --prefix app npm-install && npm run --prefix httpd npm-install",
     "build": "npm run --prefix app build",
-    "start": "npm run --prefix content-server start"
+    "start": "npm run --prefix httpd start"
   },
   "author": "bugttle <bugttle@gmail.com>",
   "license": "MIT"

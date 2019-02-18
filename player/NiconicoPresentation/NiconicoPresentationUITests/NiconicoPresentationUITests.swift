@@ -2,7 +2,7 @@
 //  NiconicoPresentationUITests.swift
 //  NiconicoPresentationUITests
 //
-//  Created by Ryo Tsuruda on 2/18/19.
+//  Created by bugttle on 3/7/15.
 //  Copyright © 2015 bugttle. All rights reserved.
 //
 

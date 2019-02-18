@@ -14,7 +14,7 @@ class WindowManager: NSObject {
     
     var messageManager: MessageManager!
     var likeManager: LikeManager!
-
+    
     init(window: NSWindow) {
         super.init()
         
@@ -27,7 +27,7 @@ class WindowManager: NSObject {
         window.hasShadow = false
         window.styleMask = NSWindow.StyleMask.borderless
         
-        self.toScreen(screen: window.screen!)
+        self.toScreen(at: 0)  // send to default screen
         
         messageManager = MessageManager(window: window)
         likeManager = LikeManager(window: window)
@@ -36,7 +36,7 @@ class WindowManager: NSObject {
     func toScreen(at: Int) {
         let screens = NSScreen.screens
         if at < screens.count {
-            self.window.setFrame(screens[at].visibleFrame, display: true, animate: false)
+            self.toScreen(screen: screens[at])
         }
     }
     
@@ -57,6 +57,5 @@ class WindowManager: NSObject {
     }
     
     func doScreenTest() {
-        
     }
 }

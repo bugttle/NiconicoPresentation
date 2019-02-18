@@ -21,8 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var socketClient: SocketClient!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let board = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = board.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let windowController = storyboard.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
         
         self.statusBarManager = StatusBarManager(menu: menu)
         self.menuManager = MenuManager(menu: menu, action: #selector(self.onClickScreenSelectMenuItem))
@@ -72,4 +72,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.socketClient.disconnect()
     }
 }
-

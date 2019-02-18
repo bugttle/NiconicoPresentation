@@ -112,6 +112,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		46A4ED69221BBBFE0022335C /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				CEA28587221AE9FB00345AE1 /* KeyboardEvent.swift */,
+				CEA28585221AE9FB00345AE1 /* LikeManager.swift */,
+				CEA28584221AE9FA00345AE1 /* MessageManager.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		46A4ED6A221BBC2B0022335C /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				CEA28582221AE9FA00345AE1 /* MenuManager.swift */,
+				CEA28586221AE9FB00345AE1 /* StatusBarManager.swift */,
+				CEA28588221AE9FB00345AE1 /* WindowManager.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
 		CEA2853A221AE73D00345AE1 = {
 			isa = PBXGroup;
 			children = (
@@ -142,14 +162,10 @@
 				CEA2854C221AE73F00345AE1 /* Main.storyboard */,
 				CEA2854F221AE73F00345AE1 /* Info.plist */,
 				CEA28550221AE73F00345AE1 /* NiconicoPresentation.entitlements */,
-				CEA28587221AE9FB00345AE1 /* KeyboardEvent.swift */,
-				CEA28585221AE9FB00345AE1 /* LikeManager.swift */,
-				CEA28582221AE9FA00345AE1 /* MenuManager.swift */,
-				CEA28584221AE9FA00345AE1 /* MessageManager.swift */,
-				CEA2858A221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift */,
+				46A4ED6A221BBC2B0022335C /* Window */,
+				46A4ED69221BBBFE0022335C /* Events */,
 				CEA28583221AE9FA00345AE1 /* SocketClient.swift */,
-				CEA28586221AE9FB00345AE1 /* StatusBarManager.swift */,
-				CEA28588221AE9FB00345AE1 /* WindowManager.swift */,
+				CEA2858A221AE9FB00345AE1 /* NS(Attributed)String+Geometrics.swift */,
 			);
 			path = NiconicoPresentation;
 			sourceTree = "<group>";

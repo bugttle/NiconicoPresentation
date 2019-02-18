@@ -48,8 +48,7 @@ class SocketClient: NSObject {
             self.onTest();
         }
         socket.connect()
-    }
-    
+    }    
     
     func connect() {
         self.socket.connect()

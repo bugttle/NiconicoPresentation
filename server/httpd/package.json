@@ -1,5 +1,5 @@
 {
-  "name": "niconico-presentation-content-server",
+  "name": "niconico-presentation-httpd",
   "version": "1.0.0",
   "private": true,
   "description": "Niconico Presentation HTTP/Socket.IO Server",

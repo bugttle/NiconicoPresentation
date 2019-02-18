@@ -3,15 +3,15 @@
 ```
 $ cd server
 $ npm run install
-$ cd content-server
+$ cd httpd
 $ vim config/default.json
 > Replace "setgid", "setuid", "password" and etc.
 $ sudo npm run start
 ```
 
-* Client
+* Player
 
 ```
-$ cd client
+$ cd player/NiconicoPresentation
 $ pod install
 ```
