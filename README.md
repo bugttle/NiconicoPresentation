@@ -2,10 +2,11 @@
 
 ```
 $ cd server
-$ npm install
+$ npm run install
+$ cd content-server
 $ vim config/default.json
-> "setgid", "setuid", "password" and etc.
-$ sudo node app.js
+> Replace "setgid", "setuid", "password" and etc.
+$ sudo npm run start
 ```
 
 * Client

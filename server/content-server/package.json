@@ -1,0 +1,26 @@
+{
+  "name": "niconico-presentation-content-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Niconico Presentation HTTP/Socket.IO Server",
+  "main": "index.js",
+  "scripts": {
+    "npm-install": "npm install",
+    "start": "babel-node index.js"
+  },
+  "author": "bugttle <bugttle@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "basic-auth": "^2.0.1",
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "log4js": "^4.0.2",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "socket.io": "^2.2.0"
+  }
+}

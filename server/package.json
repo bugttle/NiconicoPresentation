@@ -1,32 +1,13 @@
 {
   "name": "niconico-presentation-server",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "private": true,
   "description": "Niconico Presentation Server",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:bugttle/NiconicoPresentation.git"
-  },
-  "dependencies": {
-    "config": "^2.0.1",
-    "express": "^4.16.4",
-    "express-basic-auth": "^1.1.6",
-    "log4js": "^3.0.6",
-    "moment": "^2.22.2",
-    "socket.io": "^2.1.1"
-  },
-  "devDependencies": {
-    "@types/config": "0.0.34",
-    "@types/express": "^4.16.0",
-    "@types/log4js": "^2.3.5",
-    "@types/node": "^10.12.0",
-    "@types/socket.io": "^1.4.38",
-    "typescript": "^3.1.3"
-  },
   "scripts": {
-    "tsc": "tsc",
-    "build": "tsc --watch",
-    "start": ""
+    "install": "npm run --prefix app npm-install && npm run --prefix content-server npm-install",
+    "build": "npm run --prefix app build",
+    "start": "npm run --prefix content-server start"
   },
   "author": "bugttle <bugttle@gmail.com>",
-  "license": "ISC"
+  "license": "MIT"
 }

@@ -33,16 +33,16 @@ class SocketClient: NSObject {
             print("socket connected")
         }
         socket.on("comment") {data, ack in
-            guard let comment = data[0] as? String else { return }
-            self.onComment(comment);
+            guard let map = data[0] as? [String: String] else { return }
+            self.onComment(map["text"]!);
         }
         socket.on("like") {data, ack in
-            guard let like = data[0] as? Int else { return }
-            self.onLike(like);
+            guard let map = data[0] as? [String: Int] else { return }
+            self.onLike(map["count"]!);
         }
         socket.on("key") {data, ack in
-            guard let key = data[0] as? String else { return }
-            self.onKey(key);
+            guard let map = data[0] as? [String: String] else { return }
+            self.onKey(map["code"]!);
         }
         socket.on("test") {data, ack in
             self.onTest();
