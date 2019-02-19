@@ -27,7 +27,7 @@ class WindowManager: NSObject {
         window.hasShadow = false
         window.styleMask = NSWindow.StyleMask.borderless
         
-        self.toScreen(at: 0)  // send to default screen
+        self.toScreen(screen: NSScreen.main!) // use launched screen
         
         messageManager = MessageManager(window: window)
         likeManager = LikeManager(window: window)
