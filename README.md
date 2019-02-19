@@ -12,6 +12,6 @@ $ sudo npm run start
 * Player
 
 ```
-$ cd player/NiconicoPresentation
+$ cd player
 $ pod install
 ```
