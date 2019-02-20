@@ -19,10 +19,11 @@ class WindowManager: NSObject {
         super.init()
         
         self.window = window
-        window.collectionBehavior = [.canJoinAllSpaces, .ignoresCycle, .fullScreenAuxiliary]
+        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+//        window.collectionBehavior = [.canJoinAllSpaces, .ignoresCycle, .fullScreenAuxiliary]
         window.level = NSWindow.Level.screenSaver
         window.isOpaque = false
-        window.backgroundColor = NSColor.clear
+        window.backgroundColor = NSColor.white
         window.ignoresMouseEvents = true
         window.hasShadow = false
         window.styleMask = NSWindow.StyleMask.borderless
@@ -41,6 +42,8 @@ class WindowManager: NSObject {
     }
     
     func toScreen(screen: NSScreen) {
+        var frameRect = screen.visibleFrame
+        self.window.setContentSize(screen.visibleFrame.size)
         self.window.setFrame(screen.visibleFrame, display: true, animate: false)
     }
     

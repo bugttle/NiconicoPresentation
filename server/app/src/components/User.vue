@@ -37,10 +37,11 @@
     },
     mounted() {
       this.socket = io(location.origin)
-      this.socket.on('init', function(data) {
+
+      this.socket.on('init', (data) => {
         this.likeCount = data.like
       })
-      this.socket.on('like', function(data) {
+      this.socket.on('like', (data) => {
         this.likeCount = data.count
       })
       this.socket.emit('join')

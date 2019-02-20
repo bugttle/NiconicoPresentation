@@ -26,7 +26,7 @@ export default class Server {
     constructor(appPath) {
         const socketIOAuthKey = Security.generateRandomKey();
         this.httpServer = new HttpServer(appPath, socketIOAuthKey);
-        this.socketIOServer = new SocketIOServer(this.httpServer);
+        this.socketIOServer = new SocketIOServer(this.httpServer, socketIOAuthKey);
     }
 
     setAdmin(userName, password) {
@@ -92,7 +92,6 @@ class SocketIOServer {
         const ioServer = new SocketIO(httpServer.server);
         ioServer.on(EVENTS.CONNECT, (socket) => {
             socket.on(EVENTS.JOIN, (data) => {
-                console.log('join');
                 if (data && data.key === socketIOAuthKey) {
                     socket.join(ROOMS.ADMIN); // for admin
                 } else if (NetworkInterface.isLocalhost(socket.request.connection.remoteAddress)) {

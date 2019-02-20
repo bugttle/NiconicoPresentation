@@ -17,8 +17,8 @@ class LikeManager: NSObject {
     init(window: NSWindow) {
         super.init()
         self.window = window
-        likeCountTextField = self.createTextField(count: 0)
-    }    
+        self.likeCountTextField = self.createTextField(count: 0)
+    }
     
     private func createTextField(count: Int) -> NSTextField {
         let text = NSTextField(frame: NSMakeRect(70, 30, 200, 40))
@@ -29,7 +29,9 @@ class LikeManager: NSObject {
         text.isSelectable = false
         text.usesSingleLineMode = true
         
-        setCount(text: text, count: count)
+        self.setCount(text: text, count: count)
+        
+        self.window.contentView?.addSubview(text)
         
         return text;
     }
@@ -65,11 +67,21 @@ class LikeManager: NSObject {
     
     func showLike(count: Int) {
         let imageView = NSImageView(frame: NSMakeRect(0, 0, 200, 171))
-        imageView.image = NSImage(named: "FacebookLike")
-        self.window.contentView?.addSubview(imageView, positioned: .below, relativeTo: likeCountTextField)
+        imageView.image = NSImage(named: "Like")
         
-        setCount(text: likeCountTextField, count: count)
+        var frame = imageView.frame
+        frame.size = CGSize(width: 201, height: 160)
+        imageView.frame = frame
         
-        self.animate(imageView: imageView, textView: likeCountTextField, duration: TimeInterval(AnimationDuration))
+        self.window.contentView?.addSubview(imageView)
+        
+//        var v = self.window.contentView
+//        var a = self.window.contentView?.frame
+//        self.window.contentView?.addSubview(imageView)
+//        self.window.contentView?.addSubview(imageView, positioned: .below, relativeTo: self.likeCountTextField)
+        
+        self.setCount(text: self.likeCountTextField, count: count)
+        
+//        self.animate(imageView: imageView, textView: self.likeCountTextField, duration: TimeInterval(AnimationDuration))
     }
 }

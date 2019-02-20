@@ -11,10 +11,10 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Components
 import App from './App.vue'
-import User from '@/components/User'
-import Admin from '@/components/Admin'
+import User from './components/User.vue'
+import Admin from './components/Admin.vue'
 
-Vue.config.productionTip = false
+Vue.config.productionTip = true
 
 const router = new VueRouter({
     mode: 'history',

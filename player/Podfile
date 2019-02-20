@@ -9,7 +9,7 @@ target 'NiconicoPresentationPlayer' do
   use_frameworks!
 
   # Pods for NiconicoPresentatioPlayer
-  pod 'Socket.IO-Client-Swift', '~> 13.3.0'
+  pod 'Socket.IO-Client-Swift', '~> 14.0.0'
 
   target 'NiconicoPresentationPlayerTests' do
     inherit! :search_paths

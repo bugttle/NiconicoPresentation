@@ -24,31 +24,33 @@ class SocketClient: NSObject {
         super.init()
         
         self.manager = SocketManager(socketURL: URL(string: url)!, config: [.log(true), .compress])
-        self.socket = manager.defaultSocket
+        self.socket = self.manager.defaultSocket
         
-        socket.on(clientEvent: .connect) {data, ack in
+        self.socket.on(clientEvent: .connect) {data, ack in
+            print("socket connected")
+            self.socket.emit("join")
+        }
+        self.socket.on(clientEvent: .disconnect) {data, ack in
             print("socket connected")
         }
-        socket.on(clientEvent: .disconnect) {data, ack in
-            print("socket connected")
-        }
-        socket.on("comment") {data, ack in
+        self.socket.on("comment") {data, ack in
             guard let map = data[0] as? [String: String] else { return }
             self.onComment(map["text"]!);
         }
-        socket.on("like") {data, ack in
+        self.socket.on("like") {data, ack in
             guard let map = data[0] as? [String: Int] else { return }
             self.onLike(map["count"]!);
         }
-        socket.on("key") {data, ack in
+        self.socket.on("key") {data, ack in
             guard let map = data[0] as? [String: String] else { return }
             self.onKey(map["code"]!);
         }
-        socket.on("test") {data, ack in
+        self.socket.on("test") {data, ack in
             self.onTest();
         }
-        socket.connect()
-    }    
+
+    }
+    
     
     func connect() {
         self.socket.connect()

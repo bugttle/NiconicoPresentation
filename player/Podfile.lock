@@ -1,10 +1,10 @@
 PODS:
-  - Socket.IO-Client-Swift (13.3.1):
-    - Starscream (~> 3.0.2)
+  - Socket.IO-Client-Swift (14.0.0):
+    - Starscream (~> 3.0.6)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
-  - Socket.IO-Client-Swift (~> 13.3.0)
+  - Socket.IO-Client-Swift (~> 14.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - Starscream
 
 SPEC CHECKSUMS:
-  Socket.IO-Client-Swift: 79f8f85fa44881838175a20f9bd2c32bef2c9d37
+  Socket.IO-Client-Swift: 21e6a8a23a7d367d5ddfab6cbbd3c679cf3c25d6
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: 359987930782c6a671632c9313aa3e3653f0b8d4
+PODFILE CHECKSUM: 9b6daab2784f8b534f0461c8bd2d40d2d0cac371
 
 COCOAPODS: 1.5.3

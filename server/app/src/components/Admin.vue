@@ -44,8 +44,8 @@
             <ul class="uk-list uk-list-divider">
                 <li v-for="(data, index) in receivedComments" :key="index">
                     <div class="uk-flex">
-                        <span class="uk-width-1-4 uk-text-right">{{data.date}}</span><span
-                            class="uk-width-auto uk-text-left uk-margin-left">{{data.text}}</span>
+                        <span class="uk-width-auto uk-text-right">{{data.date}}</span><span
+                            class="uk-width-auto uk-text-left uk-margin-small-left">{{data.text}}</span>
                     </div>
                 </li>
             </ul>
@@ -63,7 +63,7 @@
       return {
         likeCount: 0,
         comment: '',
-        receivedComments: [{date: 'YYYY-MM-DD 111111', text: 'aaaaaaa'}, {date: 'YYYY-MM-DD 222222', text: 'aaaaaaa'}],
+        receivedComments: [{date: '02/20 12:07:16', text: 'aaaaaaa'}, {date: '02/20 12:07:16', text: 'aaaaaaa'}],
       }
     },
     mounted() {
@@ -76,7 +76,7 @@
         this.likeCount = data.count
       })
       this.socket.on('comment', (data) => {
-        this.receivedComments.push(data)
+        this.receivedComments.unshift(data) // insert to header position
       })
 
       // Admin auth key
