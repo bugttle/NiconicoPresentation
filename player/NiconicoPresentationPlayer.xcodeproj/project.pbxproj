@@ -14,13 +14,14 @@
 		46A4EDC3221BC4CD0022335C /* NiconicoPresentationPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDC2221BC4CD0022335C /* NiconicoPresentationPlayerTests.swift */; };
 		46A4EDD3221BC7D30022335C /* NS(Attributed)String+Geometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDD1221BC7D30022335C /* NS(Attributed)String+Geometrics.swift */; };
 		46A4EDD4221BC7D30022335C /* SocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDD2221BC7D30022335C /* SocketClient.swift */; };
-		46A4EDD9221BC7E40022335C /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDD6221BC7E40022335C /* WindowManager.swift */; };
 		46A4EDDA221BC7E40022335C /* StatusBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDD7221BC7E40022335C /* StatusBarManager.swift */; };
 		46A4EDDB221BC7E40022335C /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDD8221BC7E40022335C /* MenuManager.swift */; };
 		46A4EDE0221BC7F10022335C /* LikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDDD221BC7F10022335C /* LikeManager.swift */; };
 		46A4EDE1221BC7F10022335C /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDDE221BC7F10022335C /* MessageManager.swift */; };
 		46A4EDE2221BC7F10022335C /* KeyboardEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A4EDDF221BC7F10022335C /* KeyboardEvent.swift */; };
 		97C738A5DD08BFF3A13EDC1E /* Pods_NiconicoPresentationPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E03F9CF86ED2DB94CD7D005 /* Pods_NiconicoPresentationPlayer.framework */; };
+		CEE7D0EA221EDE5800469A9F /* PlayerWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7D0E9221EDE5800469A9F /* PlayerWindowController.swift */; };
+		CEE7D0EC221F06DD00469A9F /* NSScreen+DisplayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE7D0EB221F06DD00469A9F /* NSScreen+DisplayName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,6 @@
 		46A4EDC4221BC4CD0022335C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A4EDD1221BC7D30022335C /* NS(Attributed)String+Geometrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NS(Attributed)String+Geometrics.swift"; sourceTree = "<group>"; };
 		46A4EDD2221BC7D30022335C /* SocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketClient.swift; sourceTree = "<group>"; };
-		46A4EDD6221BC7E40022335C /* WindowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		46A4EDD7221BC7E40022335C /* StatusBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarManager.swift; sourceTree = "<group>"; };
 		46A4EDD8221BC7E40022335C /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		46A4EDDD221BC7F10022335C /* LikeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeManager.swift; sourceTree = "<group>"; };
@@ -56,6 +56,8 @@
 		8E03F9CF86ED2DB94CD7D005 /* Pods_NiconicoPresentationPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentationPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65B459DAB9C380E61928D7B /* Pods-NiconicoPresentationPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationPlayer/Pods-NiconicoPresentationPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2DE3C3D838B5063367B6C8 /* Pods-NiconicoPresentationPlayerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiconicoPresentationPlayerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiconicoPresentationPlayerTests/Pods-NiconicoPresentationPlayerTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEE7D0E9221EDE5800469A9F /* PlayerWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindowController.swift; sourceTree = "<group>"; };
+		CEE7D0EB221F06DD00469A9F /* NSScreen+DisplayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+DisplayName.swift"; sourceTree = "<group>"; };
 		EA947A854106A2A59A67798D /* Pods_NiconicoPresentationPlayerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiconicoPresentationPlayerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,7 +110,9 @@
 				46A4EDB8221BC4CD0022335C /* Info.plist */,
 				46A4EDB9221BC4CD0022335C /* NiconicoPresentationPlayer.entitlements */,
 				46A4EDD1221BC7D30022335C /* NS(Attributed)String+Geometrics.swift */,
+				CEE7D0EB221F06DD00469A9F /* NSScreen+DisplayName.swift */,
 				46A4EDD2221BC7D30022335C /* SocketClient.swift */,
+				CEE7D0ED221F084900469A9F /* Extensions */,
 				46A4EDDC221BC7F10022335C /* Events */,
 				46A4EDD5221BC7E40022335C /* Window */,
 			);
@@ -127,7 +131,7 @@
 		46A4EDD5221BC7E40022335C /* Window */ = {
 			isa = PBXGroup;
 			children = (
-				46A4EDD6221BC7E40022335C /* WindowManager.swift */,
+				CEE7D0E9221EDE5800469A9F /* PlayerWindowController.swift */,
 				46A4EDD7221BC7E40022335C /* StatusBarManager.swift */,
 				46A4EDD8221BC7E40022335C /* MenuManager.swift */,
 			);
@@ -153,6 +157,13 @@
 				CC2DE3C3D838B5063367B6C8 /* Pods-NiconicoPresentationPlayerTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CEE7D0ED221F084900469A9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EC776EE9A33595F14FD0C2F0 /* Frameworks */ = {
@@ -340,12 +351,13 @@
 			files = (
 				46A4EDDB221BC7E40022335C /* MenuManager.swift in Sources */,
 				46A4EDD3221BC7D30022335C /* NS(Attributed)String+Geometrics.swift in Sources */,
+				CEE7D0EC221F06DD00469A9F /* NSScreen+DisplayName.swift in Sources */,
 				46A4EDDA221BC7E40022335C /* StatusBarManager.swift in Sources */,
-				46A4EDD9221BC7E40022335C /* WindowManager.swift in Sources */,
 				46A4EDE0221BC7F10022335C /* LikeManager.swift in Sources */,
 				46A4EDB0221BC4CC0022335C /* AppDelegate.swift in Sources */,
 				46A4EDD4221BC7D30022335C /* SocketClient.swift in Sources */,
 				46A4EDE1221BC7F10022335C /* MessageManager.swift in Sources */,
+				CEE7D0EA221EDE5800469A9F /* PlayerWindowController.swift in Sources */,
 				46A4EDE2221BC7F10022335C /* KeyboardEvent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,9 +13,13 @@ class MenuManager: NSObject {
     init(menu: NSMenu, action: Selector) {
         super.init()
         
-        for i in 0 ..< NSScreen.screens.count {
+        let screens = NSScreen.screens
+        for i in 0 ..< screens.count {
             let number = i + 1
-            let item = NSMenuItem(title: String(format: "Screen %d", number),
+            let a = screens[i].deviceDescription
+            
+            let displayName = screens[i].displayName()
+            let item = NSMenuItem(title: String(format: "%d: %@", i, (displayName != nil) ? displayName! : "Unknown"),
                                   action: action,
                                   keyEquivalent: String(format: "%d", number))
             item.tag = i

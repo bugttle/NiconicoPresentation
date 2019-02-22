@@ -15,20 +15,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var menu: NSMenu!
     
+    var windowController: PlayerWindowController!
     var statusBarManager: StatusBarManager!
     var menuManager: MenuManager!
-    var windowManager: WindowManager!
     var socketClient: SocketClient!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let board = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = board.instantiateController(withIdentifier: "MainWindow") as! NSWindowController
-//        windowController.showWindow(nil)
-//        windowController.window?.makeMain()
+        self.windowController = board.instantiateController(withIdentifier: "MainWindow") as? PlayerWindowController
+        
+//        let window = windowController.window!
+//        let a = window.title
+//
+////        windowController.showWindow(nil)
+////        windowController.window?.makeMain()
+//
+//        window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
+//        //        window.collectionBehavior = [.canJoinAllSpaces, .ignoresCycle, .fullScreenAuxiliary]
+//        window.level = NSWindow.Level.screenSaver
+//        window.isOpaque = false
+//        window.backgroundColor = NSColor.clear
+//        window.ignoresMouseEvents = true
+//        window.hasShadow = false
+//        window.styleMask = NSWindow.StyleMask.borderless
+
         
         self.statusBarManager = StatusBarManager(menu: menu)
         self.menuManager = MenuManager(menu: menu, action: #selector(self.onClickScreenSelectMenuItem))
-        self.windowManager = WindowManager(window: windowController.window!)
 //
 //        self.socketClient = self.createSocketIO(url: URL)
 //        self.socketClient.connect()
@@ -43,25 +56,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func createSocketIO(url: String) -> SocketClient! {
         let client = SocketClient(url: url)
         client.onComment = {comment in
-            self.windowManager.addMessage(text: comment)
+            self.windowController.addMessage(text: comment)
         }
         client.onLike = {like in
-            self.windowManager.showLike(count: like)
+            self.windowController.showLike(count: like)
         }
         client.onKey = {key in
             switch key {
             case "LeftArrow":
-                self.windowManager.postKeyboardEvent(key: KeyboardEvent.LeftArrow)
+                self.windowController.postKeyboardEvent(key: KeyboardEvent.LeftArrow)
                 break
             case "RightArrow":
-                self.windowManager.postKeyboardEvent(key: KeyboardEvent.RightArrow)
+                self.windowController.postKeyboardEvent(key: KeyboardEvent.RightArrow)
                 break
             default:
                 break
             }
         }
         client.onTest = {
-            self.windowManager.doScreenTest()
+            self.windowController.doScreenTest()
         }
         return client
     }
@@ -69,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - MenuItem actions
     
     @objc func onClickScreenSelectMenuItem(_ sender: NSMenuItem) {
-        self.windowManager.showLike(count: 1)
+        self.windowController.showLike(count: 1)
 //        self.windowManager.toScreen(at: sender.tag)
     }
     
