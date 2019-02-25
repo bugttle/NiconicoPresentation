@@ -51,11 +51,11 @@ final class PlayerWindowController: NSWindowController {
     }
     
     func addMessage(text: String) {
-        messageManager.addMessage(text: text)
+        self.messageManager.addMessage(text: text)
     }
     
     func showLike(count: Int) {
-        likeManager.showLike(count: count)
+        self.likeManager.showLike(count: count)
     }
     
     func postKeyboardEvent(key: CGKeyCode) {

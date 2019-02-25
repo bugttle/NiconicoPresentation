@@ -731,10 +731,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBo-Gd-DND">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-i8-9Uq">
                                 <rect key="frame" x="201" y="126" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SystemIcon" id="hDH-0v-y4x"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Like" id="bm1-De-zMJ"/>
                             </imageView>
                         </subviews>
                     </view>
@@ -745,6 +745,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SystemIcon" width="16" height="16"/>
+        <image name="Like" width="561" height="480"/>
     </resources>
 </document>

@@ -73,6 +73,7 @@ class LikeManager: NSObject {
         frame.size = CGSize(width: 201, height: 160)
         imageView.frame = frame
         
+        let c = self.window.contentView
         self.window.contentView?.addSubview(imageView)
         
 //        var v = self.window.contentView

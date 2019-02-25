@@ -43,8 +43,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.statusBarManager = StatusBarManager(menu: menu)
         self.menuManager = MenuManager(menu: menu, action: #selector(self.onClickScreenSelectMenuItem))
 //
-//        self.socketClient = self.createSocketIO(url: URL)
-//        self.socketClient.connect()
+        self.socketClient = self.createSocketIO(url: URL)
+        self.socketClient.connect()
 //
 
     }
@@ -82,8 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - MenuItem actions
     
     @objc func onClickScreenSelectMenuItem(_ sender: NSMenuItem) {
-        self.windowController.showLike(count: 1)
-//        self.windowManager.toScreen(at: sender.tag)
+        self.windowController.toScreen(at: sender.tag)
     }
     
     @IBAction func onClickConnectToServerMenuItem(_ sender: NSMenuItem) {
